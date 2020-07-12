@@ -65,3 +65,12 @@ body {
 .btn:hover {
     background:rgba(0, 0, 0, 0.05);
 }
+
+.btn-secondary {
+    color: #b4ddff;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
