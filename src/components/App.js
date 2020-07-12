@@ -1,5 +1,6 @@
 import React from 'react';
 import LandingPage from "./LandingPage";
+import MyMovies from "./MyMovies";
 
 import {
   BrowserRouter as Router,
@@ -9,6 +10,7 @@ import {
 const App = () => (
   <Router>
     <Route exact path="/" component={LandingPage} />
+    <Route exact path="/my-movies" component={MyMovies} />
   </Router>
 );
 
