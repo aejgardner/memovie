@@ -1,0 +1,25 @@
+.header {
+    width: 100%;
+    padding: 2rem 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+.header__icon-home {
+    grid-column: 1 / 2;
+    justify-self: start;
+    color: black;
+}
+
+.header__h1 {
+    grid-column: 2 / 3;
+    justify-self: center;
+    font-size: 4rem;
+    font-weight: 380;
+}
+
+.header__nav {
+    grid-column: 3 / 4;
+    justify-self: end;
+}
