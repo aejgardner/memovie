@@ -1,0 +1,15 @@
+.movie__table__container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.movie__table__head__cell {
+    font-size: 4rem;
+}
+
+.movie__table__btn {
+    margin: 0.1rem auto;
+}

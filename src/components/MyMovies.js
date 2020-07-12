@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import Button from './Button';
-import MovieTable from '../MovieTable';
-import MovieFormDialogue from '../Dialogues/MovieFormDialogue';
+// import MovieTable from '../MovieTable';
+// import MovieFormDialogue from '../Dialogues/MovieFormDialogue';
 import Container from '@material-ui/core/Container';
 
 const MyMovies = () => {
@@ -22,7 +22,7 @@ const MyMovies = () => {
         <div className="background-image">
             <Container width="70%">
                 <Header>My Movies</Header>
-                <MovieFormDialogue handleClose={handleClose} openDialogue={open} />
+                {/* <MovieFormDialogue handleClose={handleClose} openDialogue={open} /> */}
                 <div className="center">
                     <Button
                         className="btn btn-secondary"
@@ -30,7 +30,7 @@ const MyMovies = () => {
                     >Add a movie
                     </Button>
                 </div>
-                <MovieTable />
+                {/* <MovieTable /> */}
             </Container>
         </div>
     );
