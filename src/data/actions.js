@@ -17,3 +17,8 @@ export const updateMovie = (movie, index) => ({
 export const resetMovies = () => ({
     type: "resetMovies"
 })
+
+export const savePickedMovie = (pickedMovie) => ({
+    type: "savePickedMovie",
+    pickedMovie: pickedMovie
+})

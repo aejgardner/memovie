@@ -33,12 +33,21 @@ const resetMovies = () => {
     }
 }
 
+// saves randomly picked movie to global state so it can then be rendered in the picked movie dialogue
+const savePickedMovie = (state, action) => {
+    return {
+        ...state,
+        pickedMovie: { ...action.pickedMovie }
+    }
+}
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "submitMovie": return submitMovie(state, action);
         case "deleteMovie": return deleteMovie(state, action);
         case "updateMovie": return updateMovie(state, action);
         case "resetMovies": return resetMovies(state, action);
+        case "savePickedMovie": return savePickedMovie(state, action);
         default: return state;
     }
 };
