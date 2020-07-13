@@ -1,5 +1,13 @@
 import initial from "./initial";
 
+// adds submitted movies to movies array in initial state
+const submitMovie = (state, action) => {
+    return {
+        ...state,
+        movies: [...state.movies, action.movie]
+    }
+}
+
 // deletes specific movie from user's movie table
 const deleteMovie = (state, action) => {
     return {
@@ -27,6 +35,7 @@ const resetMovies = () => {
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case "submitMovie": return submitMovie(state, action);
         case "deleteMovie": return deleteMovie(state, action);
         case "updateMovie": return updateMovie(state, action);
         case "resetMovies": return resetMovies(state, action);

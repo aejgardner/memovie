@@ -1,3 +1,8 @@
+export const submitMovie = (movie) => ({
+    type: "submitMovie",
+    movie: movie
+})
+
 export const removeMovie = (index) => ({
     type: "deleteMovie",
     index: index
