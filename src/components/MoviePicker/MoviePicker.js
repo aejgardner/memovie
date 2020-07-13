@@ -147,13 +147,13 @@ class MoviePicker extends Component {
                                 />
 
                                 {/* watched before filters group */}
-                                <div className="filters__group">
+                                <div className="filters__group filters__group-watched-before">
                                     <h4 className="filters__heading">Watched before</h4>
                                     <div
                                         className="flex-align-center"
                                         style={{ width: "100%", justifyContent: "space-around" }}
                                     >
-                                        <div className="flex-align-center">
+                                        <div className="flex-align-center filters__watched-checkbox">
                                             <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="yes">Yes</label>
                                             <input
                                                 id="yes"
@@ -162,7 +162,7 @@ class MoviePicker extends Component {
                                                 style={{ marginLeft: "0.3rem" }}
                                             />
                                         </div>
-                                        <div className="flex-align-center">
+                                        <div className="flex-align-center filters__watched-checkbox">
                                             <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="no">No</label>
                                             <input
                                                 id="no"

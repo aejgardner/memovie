@@ -19,6 +19,7 @@ body {
     background-image: url(../assets/images/film.jpg);
     background-size: cover;
     height: 100vh;
+    overflow-y: scroll;
 }
 
 .center {

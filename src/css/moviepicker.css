@@ -35,3 +35,26 @@
 .filters__chevron:hover {
     background: rgba(221, 217, 212, 0.4);
 }
+
+@media only screen and (max-width: 900px) {
+    .filters__container {
+        padding: 1rem 0;
+    }
+
+    .mp__h3 {
+        font-size: 1.5rem;
+    }
+
+    .filters__group {
+        margin: 0 0.5rem;
+        text-align: center;
+    }
+
+    .filters__heading {
+        font-size: 1rem;
+    }
+
+    .filters__watched-checkbox {
+        margin-right: 0.7rem;
+    }
+}

@@ -42,3 +42,9 @@
 .picked-movie__director {
     margin-bottom: 1rem;
 }
+
+@media only screen and (max-width: 660px) {
+    .picked-movie__h1 {
+        font-size: 3rem;
+    }
+}
