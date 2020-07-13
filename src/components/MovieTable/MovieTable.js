@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { resetMovies } from '../../data/actions';
+import { resetMovies } from '../../data/actions';
 import Button from '../Button';
 import Movie from '../Movie';
-// import ResetMoviesDialogue from '../Dialogues/ResetMoviesDialogue';
+import ResetMoviesDialogue from '../Dialogues/ResetMoviesDialogue';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -28,10 +28,10 @@ const MovieTable = ({ movies }) => {
     // handles movie table reset functionality
     const dispatch = useDispatch();
 
-    // const handleReset = () => {
-    //     dispatch(resetMovies());
-    //     setOpen(false);
-    // }
+    const handleReset = () => {
+        dispatch(resetMovies());
+        setOpen(false);
+    }
 
     // inline styling for table head cells
     const tableHeadStyling = {
@@ -42,11 +42,11 @@ const MovieTable = ({ movies }) => {
         <>
             {movies.length ?
                 <>
-                    {/* <ResetMoviesDialogue
+                    <ResetMoviesDialogue
                         handleClose={handleClose}
                         handleReset={handleReset}
                         open={open}
-                    /> */}
+                    />
                     <TableContainer
                         component={Paper}
                         className="movie__table__container"
@@ -69,7 +69,7 @@ const MovieTable = ({ movies }) => {
                                 ))}
                             </TableBody>
                         </Table>
-                        {/* <Button className="btn" onClick={handleClickOpen}>Reset</Button> */}
+                        <Button className="btn" onClick={handleClickOpen}>Reset</Button>
                     </TableContainer>
                 </>
                 :

@@ -1,4 +1,4 @@
-// import initial from "./initial";
+import initial from "./initial";
 
 // deletes specific movie from user's movie table
 const deleteMovie = (state, action) => {
@@ -18,10 +18,18 @@ const updateMovie = (state, { updatedMovie, index }) => {
     }
 }
 
+// resets user's movie table
+const resetMovies = () => {
+    return {
+        ...initial
+    }
+}
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "deleteMovie": return deleteMovie(state, action);
         case "updateMovie": return updateMovie(state, action);
+        case "resetMovies": return resetMovies(state, action);
         default: return state;
     }
 };

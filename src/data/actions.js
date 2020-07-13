@@ -8,3 +8,7 @@ export const updateMovie = (movie, index) => ({
     updatedMovie: movie,
     index: index
 })
+
+export const resetMovies = () => ({
+    type: "resetMovies"
+})
