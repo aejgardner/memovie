@@ -150,10 +150,10 @@ class MoviePicker extends Component {
                             <div className="filters__group">
                                 <h4 className="filters__heading">Watched before</h4>
                                 <div
-                                    className="flex__align__center"
+                                    className="flex-align-center"
                                     style={{ width: "100%", justifyContent: "space-around" }}
                                 >
-                                    <div className="flex__align__center">
+                                    <div className="flex-align-center">
                                         <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="yes">Yes</label>
                                         <input
                                             id="yes"
@@ -162,7 +162,7 @@ class MoviePicker extends Component {
                                             style={{ marginLeft: "0.3rem" }}
                                         />
                                     </div>
-                                    <div className="flex__align__center">
+                                    <div className="flex-align-center">
                                         <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="no">No</label>
                                         <input
                                             id="no"
