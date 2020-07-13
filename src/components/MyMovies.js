@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Button from './Button';
 import MovieTable from './MovieTable/MovieTable';
-// import MovieFormDialogue from '../Dialogues/MovieFormDialogue';
+import MovieFormDialogue from './Dialogues/MovieFormDialogue';
 import Container from '@material-ui/core/Container';
 
 const MyMovies = () => {
@@ -22,7 +22,7 @@ const MyMovies = () => {
         <div className="background-image">
             <Container width="70%">
                 <Header>My Movies</Header>
-                {/* <MovieFormDialogue handleClose={handleClose} openDialogue={open} /> */}
+                <MovieFormDialogue handleMovieFormClose={handleClose} movieFormDialogueOpen={open} />
                 <div className="center">
                     <Button
                         className="btn btn-secondary"
