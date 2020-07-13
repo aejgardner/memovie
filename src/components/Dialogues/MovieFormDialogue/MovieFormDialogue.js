@@ -130,8 +130,9 @@ class MovieFormDialogue extends Component {
                                 value={movieStarring}
                                 onChange={e => this.handleChange(e, 'movieStarring')}
                             />
-
-                            <Button onClick={this.handleSubmit}>Add movie</Button>
+                            <div className="center">
+                                <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
+                            </div>
                         </form>
                     </Paper>
                 </DialogContent>

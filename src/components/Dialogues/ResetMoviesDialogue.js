@@ -23,8 +23,16 @@ const ResetMoviesDialogue = ({ open, handleClose, handleReset }) => {
             </DialogContent>
             <DialogActions>
                 <div className="center">
-                    <Button furtherStyling={noMarginTop} onClick={handleClose}>Back</Button>
-                    <Button furtherStyling={noMarginTop} onClick={handleReset}>Reset</Button>
+                    <Button
+                        furtherStyling={noMarginTop}
+                        className="btn"
+                        onClick={handleClose}>Back
+                    </Button>
+                    <Button
+                        furtherStyling={noMarginTop}
+                        className="btn"
+                        onClick={handleReset}>Reset
+                    </Button>
                 </div>
             </DialogActions>
         </Dialog>
