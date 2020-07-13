@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../Button';
-import AlertDialogue from '../Dialogues/AlertDialogue'
+// import AlertDialogue from '../Dialogues/AlertDialogue';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import TextField from '@material-ui/core/TextField';
@@ -120,12 +120,12 @@ class Movie extends Component {
 
         return (
             <>
-                <AlertDialogue
+                {/* <AlertDialogue
                     handleClose={this.handleDialogueClose}
                     open={open}
                     dialogueHeading="No movie title"
                     dialogueContent="Please include a movie title"
-                />
+                /> */}
                 <TableRow style={{ backgroundColor: watchedBackground, transition: "all 0.3s linear" }}>
                     <TableCell style={cellStyling} align="center">
                         {editing

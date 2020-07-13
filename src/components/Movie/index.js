@@ -1,9 +1,10 @@
 import { connect } from 'react-redux'
 import Movie from './Movie';
-import { updateMovie } from '../../data/actions'
+import { removeMovie, updateMovie } from '../../data/actions'
 
 const mapDispatchToProps = dispatch => {
     return {
+        removeMovie: index => dispatch(removeMovie(index)),
         saveMovie: (movie, index) => dispatch(updateMovie(movie, index))
     }
 }
