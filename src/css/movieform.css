@@ -14,3 +14,19 @@
     right: -10px;
     font-size: 8px;
 }
+
+.mf__paper {
+    padding: 3rem;
+}
+
+@media only screen and (max-width: 650px) {
+    .mf__form {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .mf__paper {
+        padding: 1rem;
+    }
+}

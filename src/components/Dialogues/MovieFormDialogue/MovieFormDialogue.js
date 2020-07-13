@@ -5,6 +5,7 @@ import AlertDialogue from '../../Dialogues/AlertDialogue';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import MovieFormInput from '../../MovieFormInput';
+import { StylesProvider } from '@material-ui/core/styles';
 
 class MovieFormDialogue extends Component {
     constructor(props) {
@@ -87,54 +88,55 @@ class MovieFormDialogue extends Component {
                     dialogueHeading="No movie title"
                     dialogueContent="Please enter a movie title to add a movie"
                 />
-                <DialogContent >
-                    <h1 className="center" style={{ margin: "1rem auto 1.2rem" }}>Add a movie:</h1>
-                    <Paper
-                        className="mf__paper"
-                        style={{
-                            padding: "3rem",
-                            margin: "1rem 2rem 2rem",
-                            backgroundColor: "#cfe8fc"
-                        }}
-                        elevation={3}
-                    >
-                        <form
-                            onSubmit={this.handleSubmit}
-                            className="mf__form"
+                <DialogContent style={{ padding: "2rem" }}>
+                    <h1 className="center" style={{ margin: "0 auto 1.2rem" }}>Add a movie:</h1>
+                    <StylesProvider injectFirst>
+                        <Paper
+                            className="mf__paper"
+                            style={{
+                                backgroundColor: "#cfe8fc"
+                            }}
+                            elevation={3}
                         >
-                            <MovieFormInput
-                                label="Movie title"
-                                faIcon="fas fa-asterisk fa-1x mf-asterisk"
-                                id="title"
-                                value={movieTitle}
-                                onChange={e => this.handleChange(e, 'movieTitle')}
-                            />
+                            <form
+                                onSubmit={this.handleSubmit}
+                                className="mf__form"
+                            >
+                                <MovieFormInput
+                                    label="Movie title"
+                                    faIcon="fas fa-asterisk fa-1x mf-asterisk"
+                                    id="title"
+                                    value={movieTitle}
+                                    onChange={e => this.handleChange(e, 'movieTitle')}
+                                />
 
-                            <MovieFormInput
-                                label="Movie director"
-                                id="director"
-                                value={movieDirector}
-                                onChange={e => this.handleChange(e, 'movieDirector')}
-                            />
+                                <MovieFormInput
+                                    style={{ margin: "0" }}
+                                    label="Movie director"
+                                    id="director"
+                                    value={movieDirector}
+                                    onChange={e => this.handleChange(e, 'movieDirector')}
+                                />
 
-                            <MovieFormInput
-                                label="Movie genre"
-                                id="genre"
-                                value={movieGenre}
-                                onChange={e => this.handleChange(e, 'movieGenre')}
-                            />
+                                <MovieFormInput
+                                    label="Movie genre"
+                                    id="genre"
+                                    value={movieGenre}
+                                    onChange={e => this.handleChange(e, 'movieGenre')}
+                                />
 
-                            <MovieFormInput
-                                label="Starring"
-                                id="starring"
-                                value={movieStarring}
-                                onChange={e => this.handleChange(e, 'movieStarring')}
-                            />
-                            <div className="center">
-                                <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
-                            </div>
-                        </form>
-                    </Paper>
+                                <MovieFormInput
+                                    label="Starring"
+                                    id="starring"
+                                    value={movieStarring}
+                                    onChange={e => this.handleChange(e, 'movieStarring')}
+                                />
+                                <div className="center">
+                                    <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
+                                </div>
+                            </form>
+                        </Paper>
+                    </StylesProvider>
                 </DialogContent>
             </Dialog >
         );

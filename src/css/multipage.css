@@ -75,3 +75,9 @@ body {
 .btn-secondary:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
+
+@media only screen and (max-width: 650px) {
+    .btn {
+        font-size: 1.2rem;
+    }
+}

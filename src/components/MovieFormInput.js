@@ -3,7 +3,7 @@ import { FormControl, InputLabel, Input } from '@material-ui/core';
 
 const MovieFormInput = ({ value, label, onChange, id, faIcon }) => {
     return (
-        <FormControl style={{ width: "20rem", margin: "0 auto" }}>
+        <FormControl>
             <InputLabel htmlFor={id}>{label}<i className={faIcon}></i></InputLabel>
             <Input
                 style={{ marginBottom: "1rem" }}
