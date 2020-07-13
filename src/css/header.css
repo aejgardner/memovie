@@ -8,18 +8,89 @@
 
 .header__icon-home {
     grid-column: 1 / 2;
-    justify-self: start;
     color: black;
 }
 
 .header__h1 {
     grid-column: 2 / 3;
-    justify-self: center;
     font-size: 4rem;
     font-weight: 380;
+    justify-self: center;
 }
 
 .header__nav {
     grid-column: 3 / 4;
     justify-self: end;
+}
+
+@media only screen and (max-width: 1170px) {
+    .header__h1 {
+        font-size: 3rem;
+    }
+
+    .header__nav > a {
+        font-size: 1.2rem;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .header__h1 {
+        font-size: 3rem;
+    }
+
+    .header__nav > a {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header__h1 {
+        font-size: 2rem;
+    }
+
+    .header__icon {
+        font-size: 2rem;
+    }
+
+    .header__nav > a {
+        font-size: 1.1rem;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .header {
+        display: grid;
+        grid-template-areas: 
+        "emblem   h1   h1"
+        "navlinks navlinks navlinks";
+        grid-row-gap: 0.5rem;
+    }
+
+    .header__icon {
+        grid-area: emblem;
+    }
+
+    .header__h1 {
+        grid-area: h1;
+        justify-self: end;
+    }
+
+    .header__nav {
+        border-top: 1px solid black;
+        padding-top: 0.5rem;
+        grid-area: navlinks;
+        justify-self: stretch;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header__nav > a {
+        font-size: 1.3rem;
+        margin: 0;
+        padding: 0.2rem 0.4rem;
+    }
 }

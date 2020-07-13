@@ -121,7 +121,6 @@ class MoviePicker extends Component {
                     <NoMoviesDialogue handleClose={this.handleWarningDialogueClose} open={warningDialogueOpen} />
                     <Header>Movie Picker</Header>
                     <h3 className="center mp__h3">Pick a random movie from your movies, with or without filters</h3>
-                    <h4 className="center mp__h4" >Filters</h4>
                     <Paper style={{ overflowX: "auto" }} elevation={4}>
                         <div className="filters__container">
                             <div className="filters">

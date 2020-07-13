@@ -115,7 +115,8 @@ class Movie extends Component {
         // inline styling for watched button
         let watchedButtonStyling = {
             fontFamily: "Roboto, arial",
-            fontSize: "1rem"
+            fontSize: "1rem",
+            overflowX: "auto"
         }
 
         return (
