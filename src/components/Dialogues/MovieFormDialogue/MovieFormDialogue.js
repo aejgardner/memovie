@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import AlertDialogue from '../../Dialogues/AlertDialogue';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import MovieFormInput from '../../MovieFormInput/MovieFormInput';
+import MovieFormInput from '../../MovieFormInput';
 
 class MovieFormDialogue extends Component {
     constructor(props) {
@@ -20,8 +20,8 @@ class MovieFormDialogue extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDialogueOpen = this.handleDialogueOpen.bind(this);
-        this.handleDialogueClose = this.handleDialogueClose.bind(this);
+        this.handleWarningDialogueOpen = this.handleWarningDialogueOpen.bind(this);
+        this.handleWarningDialogueClose = this.handleWarningDialogueClose.bind(this);
     }
 
     // handles opening warning dialogue if user hasn't entered movie title

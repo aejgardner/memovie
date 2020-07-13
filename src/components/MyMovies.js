@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Button from './Button';
-import MovieTable from './MovieTable/MovieTable';
+import MovieTable from './MovieTable';
 import MovieFormDialogue from './Dialogues/MovieFormDialogue';
 import Container from '@material-ui/core/Container';
 
