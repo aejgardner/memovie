@@ -1,4 +1,44 @@
+.dialogue__container {
+    padding: 1.3rem 2rem;
+}
+
 .dialogue__heading {
-    padding: 1.5rem 0 0 1.5rem;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.2rem;
+    color: var(--font-black);
+}
+
+.dialogue__content-alert {
+    font-family: 'Raleway';
+    font-size: 1.1rem;
+    background-color: rgba(255, 191, 102, 0.9);
+    color: rgb(102, 60, 0);
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.dialogue__content-alert > p {
+    margin-left: 0.4rem;
+}
+
+.no-movies__h3 {
+    margin: 0;
+    margin-bottom: 0.7rem;
+    background-color: #b4ddff; 
+    padding: 0.8rem; 
+    border-radius: 5px;
+}
+
+.picked-movie__h1 {
+    font-size: 4rem;
+    color: var(--font-black);
+    margin: 0;
+    margin-bottom: 0.7rem;
+    background-color: #b4ddff; 
+    padding: 0.8rem 1rem; 
+    border-radius: 5px;
+}
+
+.picked-movie__director {
+    margin-bottom: 1rem;
 }

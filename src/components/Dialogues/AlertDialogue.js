@@ -1,31 +1,28 @@
 import React from 'react';
 import Button from '../Button';
-import Alert from '@material-ui/lab/Alert';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
 
-const AlertDialogue = ({ open, handleClose, dialogueHeading, dialogueContent }) => {
-    const noMarginTop = {
-        marginTop: "0",
-    }
-    return (
-        <Dialog
-            open={open}
-            onClose={handleClose}
-        >
+const AlertDialogue = ({ open, handleClose, dialogueHeading, dialogueContent }) => (
+    <Dialog
+        open={open}
+        onClose={handleClose}
+    >
+        <div className="dialogue__container">
             <h1 className="dialogue__heading">{dialogueHeading}</h1>
-            <DialogContent>
-                <DialogContentText>
-                    <Alert severity="warning">{dialogueContent}</Alert>
-                </DialogContentText>
+            <DialogContent style={{ padding: "0" }}>
+                <div className="flex-align-center dialogue__content-alert">
+                    <ReportProblemOutlinedIcon />
+                    <p>{dialogueContent}</p>
+                </div>
             </DialogContent>
-            <DialogActions>
-                <Button furtherStyling={noMarginTop} onClick={handleClose}>Ok</Button>
+            <DialogActions style={{ padding: "0" }}>
+                <Button className="btn" onClick={handleClose}>Ok</Button>
             </DialogActions>
-        </Dialog>
-    );
-};
+        </div>
+    </Dialog >
+);
 
 export default AlertDialogue;

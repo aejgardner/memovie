@@ -4,29 +4,25 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 
-const PickedMovieDialogue = ({ handleClose, open, pickedMovie }) => {
-    const noMarginTop = {
-        marginTop: "0",
-    }
-    return (
-        <Dialog
-            open={open}
-            onClose={handleClose}
-        >
+const PickedMovieDialogue = ({ handleClose, open, pickedMovie }) => (
+    <Dialog
+        open={open}
+        onClose={handleClose}
+    >
+        <div className="dialogue__container">
             <h1 className="dialogue__heading">Your movie</h1>
-            <DialogContent>
-                <h1 style={{ fontSize: "4rem", margin: "0" }}>{pickedMovie.movieTitle}</h1>
-                <p >{pickedMovie.movieDirector}</p>
+            <DialogContent style={{ padding: "0" }}>
+                <h1 className="picked-movie__h1">{pickedMovie.movieTitle}</h1>
+                <p className="picked-movie__director">{pickedMovie.movieDirector}</p>
             </DialogContent>
             <DialogActions>
                 <Button
-                    className="btn"
-                    furtherStyling={noMarginTop}
+                    className="btn btn-secondary"
                     onClick={handleClose}>Choose again
                 </Button>
             </DialogActions>
-        </Dialog>
-    );
-};
+        </div>
+    </Dialog>
+);
 
 export default PickedMovieDialogue;

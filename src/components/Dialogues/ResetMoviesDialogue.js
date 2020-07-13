@@ -1,42 +1,37 @@
 import React from 'react';
 import Button from '../Button';
-import Alert from '@material-ui/lab/Alert';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
 
-const ResetMoviesDialogue = ({ open, handleClose, handleReset }) => {
-    const noMarginTop = {
-        marginTop: "0",
-    }
-    return (
-        <Dialog
-            open={open}
-            onClose={handleClose}
-        >
+const ResetMoviesDialogue = ({ open, handleClose, handleReset }) => (
+    <Dialog
+        open={open}
+        onClose={handleClose}
+    >
+        <div className="dialogue__container">
             <h1 className="dialogue__heading">Reset your movies?</h1>
-            <DialogContent>
-                <DialogContentText>
-                    <Alert severity="warning">This will clear the table and you will have to start over</Alert>
-                </DialogContentText>
+            <DialogContent style={{ padding: "0" }}>
+                <div className="flex-align-center dialogue__content-alert">
+                    <ReportProblemOutlinedIcon />
+                    <p>This will clear the table and you will have to start over</p>
+                </div>
             </DialogContent>
-            <DialogActions>
+            <DialogActions style={{ padding: "0" }}>
                 <div className="center">
                     <Button
-                        furtherStyling={noMarginTop}
                         className="btn"
                         onClick={handleClose}>Back
                     </Button>
                     <Button
-                        furtherStyling={noMarginTop}
                         className="btn"
                         onClick={handleReset}>Reset
                     </Button>
                 </div>
             </DialogActions>
-        </Dialog>
-    );
-};
+        </div>
+    </Dialog>
+);
 
 export default ResetMoviesDialogue;
