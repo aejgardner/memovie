@@ -15,7 +15,7 @@ const ResetMoviesDialogue = ({ open, handleClose, handleReset }) => {
             open={open}
             onClose={handleClose}
         >
-            <h1 className="dialogue-title">Reset your movies?</h1>
+            <h1 className="dialogue__heading">Reset your movies?</h1>
             <DialogContent>
                 <DialogContentText>
                     <Alert severity="warning">This will clear the table and you will have to start over</Alert>

@@ -15,7 +15,7 @@ const AlertDialogue = ({ open, handleClose, dialogueHeading, dialogueContent }) 
             open={open}
             onClose={handleClose}
         >
-            <h1 className="dialogue-title">{dialogueHeading}</h1>
+            <h1 className="dialogue__heading">{dialogueHeading}</h1>
             <DialogContent>
                 <DialogContentText>
                     <Alert severity="warning">{dialogueContent}</Alert>
