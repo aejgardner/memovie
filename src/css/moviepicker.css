@@ -8,6 +8,10 @@
     font-size: 1.4rem;
 }
 
+.filters__container {
+    padding: 1rem;
+}
+
 .filters {
     display: flex;
     justify-content: space-between;
@@ -22,7 +26,6 @@
 }
 
 .filters__heading {
-    margin-top: 0.8rem;
     margin-bottom: 0.8rem;
     font-family: "Roboto", arial;
     font-size: 1.1rem;

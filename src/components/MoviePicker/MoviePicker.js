@@ -123,60 +123,62 @@ class MoviePicker extends Component {
                     <h3 className="center mp__h3">Pick a random movie from your movies, with or without filters</h3>
                     <h4 className="center mp__h4" >Filters</h4>
                     <Paper style={{ overflowX: "auto" }} elevation={4}>
-                        <div className="filters">
+                        <div className="filters__container">
+                            <div className="filters">
 
-                            {/* directors filter group */}
-                            <FilterGroup
-                                heading="Directors"
-                                filtersNoDuplicates={directorsNoDuplicates}
-                                onChange={(e) => this.handleChange(e)}
-                            />
+                                {/* directors filter group */}
+                                <FilterGroup
+                                    heading="Directors"
+                                    filtersNoDuplicates={directorsNoDuplicates}
+                                    onChange={(e) => this.handleChange(e)}
+                                />
 
-                            {/* genres filter group */}
-                            <FilterGroup
-                                heading="Genres"
-                                filtersNoDuplicates={genresNoDuplicates}
-                                onChange={(e) => this.handleChange(e)}
-                            />
+                                {/* genres filter group */}
+                                <FilterGroup
+                                    heading="Genres"
+                                    filtersNoDuplicates={genresNoDuplicates}
+                                    onChange={(e) => this.handleChange(e)}
+                                />
 
-                            {/* starring filters group */}
-                            <FilterGroup
-                                heading="Starring"
-                                filtersNoDuplicates={starringNoDuplicates}
-                                onChange={(e) => this.handleChange(e)}
-                            />
+                                {/* starring filters group */}
+                                <FilterGroup
+                                    heading="Starring"
+                                    filtersNoDuplicates={starringNoDuplicates}
+                                    onChange={(e) => this.handleChange(e)}
+                                />
 
-                            {/* watched before filters group */}
-                            <div className="filters__group">
-                                <h4 className="filters__heading">Watched before</h4>
-                                <div
-                                    className="flex-align-center"
-                                    style={{ width: "100%", justifyContent: "space-around" }}
-                                >
-                                    <div className="flex-align-center">
-                                        <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="yes">Yes</label>
-                                        <input
-                                            id="yes"
-                                            type="checkbox"
-                                            onChange={() => this.handleWatched(true)}
-                                            style={{ marginLeft: "0.3rem" }}
-                                        />
-                                    </div>
-                                    <div className="flex-align-center">
-                                        <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="no">No</label>
-                                        <input
-                                            id="no"
-                                            type="checkbox"
-                                            onChange={() => this.handleWatched(false)}
-                                            style={{ marginLeft: "0.3rem" }}
-                                        />
+                                {/* watched before filters group */}
+                                <div className="filters__group">
+                                    <h4 className="filters__heading">Watched before</h4>
+                                    <div
+                                        className="flex-align-center"
+                                        style={{ width: "100%", justifyContent: "space-around" }}
+                                    >
+                                        <div className="flex-align-center">
+                                            <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="yes">Yes</label>
+                                            <input
+                                                id="yes"
+                                                type="checkbox"
+                                                onChange={() => this.handleWatched(true)}
+                                                style={{ marginLeft: "0.3rem" }}
+                                            />
+                                        </div>
+                                        <div className="flex-align-center">
+                                            <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="no">No</label>
+                                            <input
+                                                id="no"
+                                                type="checkbox"
+                                                onChange={() => this.handleWatched(false)}
+                                                style={{ marginLeft: "0.3rem" }}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="center mt-1" >
-                            <Button className="btn" onClick={this.handlePickMovie}>Pick movie</Button>
+                            <div className="center mt-1" >
+                                <Button className="btn" onClick={this.handlePickMovie}>Pick movie</Button>
+                            </div>
                         </div>
                     </Paper>
                 </Container>

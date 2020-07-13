@@ -36,7 +36,8 @@ const MovieTable = ({ movies }) => {
     // inline styling for table head cells
     const tableHeadStyling = {
         fontSize: "1.1rem",
-        padding: "0.8rem 0"
+        padding: "0.8rem 0",
+        fontWeight: "bold"
     }
     return (
         <>
@@ -51,7 +52,7 @@ const MovieTable = ({ movies }) => {
                         component={Paper}
                         className="movie__table__container"
                     >
-                        <Table size="small">
+                        <Table size="small" style={{ marginBottom: "1rem" }}>
                             <TableHead>
                                 <TableRow>
                                     <TableCell style={tableHeadStyling} align="center">Movie title</TableCell>
