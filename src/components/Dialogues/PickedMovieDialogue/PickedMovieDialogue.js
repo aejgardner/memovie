@@ -13,7 +13,7 @@ const PickedMovieDialogue = ({ handleClose, open, pickedMovie }) => {
             open={open}
             onClose={handleClose}
         >
-            <h1 className="dialogue-title">Your movie</h1>
+            <h1 className="dialogue__heading">Your movie</h1>
             <DialogContent>
                 <h1 style={{ fontSize: "4rem", margin: "0" }}>{pickedMovie.movieTitle}</h1>
                 <p >{pickedMovie.movieDirector}</p>

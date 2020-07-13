@@ -9,7 +9,7 @@ const NoMoviesDialogue = ({ handleClose, open }) => (
         open={open}
         onClose={handleClose}
     >
-        <h1 className="dialogue-title">No movies!</h1>
+        <h1 className="dialogue__heading">No movies!</h1>
         <DialogContent>
             <h3 style={{ margin: 0 }}>There are no movies matching your search criteria. Please change your filters or add a movie that matches them.</h3>
         </DialogContent>

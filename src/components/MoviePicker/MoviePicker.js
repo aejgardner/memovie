@@ -176,7 +176,7 @@ class MoviePicker extends Component {
                         </div>
 
                         <div className="center mt-1" >
-                            <Button onClick={this.handlePickMovie}>Pick movie</Button>
+                            <Button className="btn" onClick={this.handlePickMovie}>Pick movie</Button>
                         </div>
                     </Paper>
                 </Container>
