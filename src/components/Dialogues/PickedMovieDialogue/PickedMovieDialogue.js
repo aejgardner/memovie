@@ -15,7 +15,7 @@ const PickedMovieDialogue = ({ handleClose, open, pickedMovie }) => (
                 <h1 className="picked-movie__h1">{pickedMovie.movieTitle}</h1>
                 <p className="picked-movie__director">{pickedMovie.movieDirector}</p>
             </DialogContent>
-            <DialogActions>
+            <DialogActions style={{ justifyContent: "center" }}>
                 <Button
                     className="btn btn-secondary"
                     onClick={handleClose}>Choose again
