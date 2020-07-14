@@ -19,6 +19,11 @@
     padding: 3rem;
 }
 
+.mf__small {
+    text-align: center;
+    margin-bottom: 0.7rem;
+}
+
 @media only screen and (max-width: 650px) {
     .mf__form {
         width: 100%;

@@ -74,7 +74,7 @@ const MovieTable = ({ movies }) => {
                     </TableContainer>
                 </>
                 :
-                <h2 className="center mt-1">No movies! Add some by clicking the button above</h2>
+                <h2 className="center movie__table__h2">No movies! Add some by clicking the button above</h2>
             }
         </>
     );

@@ -131,6 +131,8 @@ class MovieFormDialogue extends Component {
                                     value={movieStarring}
                                     onChange={e => this.handleChange(e, 'movieStarring')}
                                 />
+                                <small className="mf__small">Please put a comma and space between starring names</small>
+                                <small className="mf__small">*Required</small>
                                 <div className="center">
                                     <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
                                 </div>
