@@ -23,3 +23,28 @@
     display: flex; 
     justify-content: space-between;
 }
+
+@media only screen and (max-width: 750px) {
+    .lp__heading {
+        font-size: 7rem;
+    }
+
+    .lp__sub-heading {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .lp__heading {
+        font-size: 4.5rem;
+    }
+
+    .lp__sub-heading {
+        font-size: 1.2rem;
+    }
+
+    .lp__btn-group {
+        width: 100%;
+        justify-content: center;
+    }
+}
