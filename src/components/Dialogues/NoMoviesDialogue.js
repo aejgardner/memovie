@@ -16,7 +16,7 @@ const NoMoviesDialogue = ({ handleClose, open }) => (
                 <Paper className="paper"
                     style={{
                         backgroundColor: "#cfe8fc",
-                        marginBottom: "1rem",
+                        marginBottom: "0.5rem",
                         paddingTop: "2rem",
                         paddingBottom: "2rem",
                     }}
