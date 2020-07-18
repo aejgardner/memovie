@@ -3,8 +3,9 @@
 }
 
 .dialogue__heading {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
     color: var(--font-black);
+    text-align: center;
 }
 
 .dialogue__content-alert {
@@ -30,17 +31,16 @@
 }
 
 .picked-movie__h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: var(--font-black);
     margin: 0;
-    margin-bottom: 0.7rem;
-    background-color: #b4ddff; 
-    padding: 0.8rem 1rem; 
-    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .picked-movie__director {
-    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 @media only screen and (max-width: 660px) {
