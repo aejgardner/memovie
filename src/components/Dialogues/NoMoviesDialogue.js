@@ -24,5 +24,4 @@ const NoMoviesDialogue = ({ handleClose, open }) => (
     </Dialog>
 );
 
-
 export default NoMoviesDialogue;
