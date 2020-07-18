@@ -14,7 +14,7 @@ const NoMoviesDialogue = ({ handleAboutClose, aboutDialogueOpen }) => (
             <h1 className="dialogue__heading">About MeMovie</h1>
             <DialogContent style={{ padding: "0" }}>
                 <Paper
-                    className="mf__paper"
+                    className="paper"
                     style={{
                         backgroundColor: "#cfe8fc",
                         marginBottom: "1rem",

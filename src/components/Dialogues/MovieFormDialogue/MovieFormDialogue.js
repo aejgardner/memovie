@@ -92,7 +92,7 @@ class MovieFormDialogue extends Component {
                     <h1 className="center" style={{ margin: "0 auto 1.2rem" }}>Add a movie:</h1>
                     <StylesProvider injectFirst>
                         <Paper
-                            className="mf__paper"
+                            className="paper"
                             style={{
                                 backgroundColor: "#cfe8fc"
                             }}
