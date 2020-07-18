@@ -40,4 +40,8 @@
     .picked-movie__h1 {
         font-size: 3rem;
     }
+    
+    .dialogue__container {
+        padding: 1.3rem 0.4rem;
+    }
 }
