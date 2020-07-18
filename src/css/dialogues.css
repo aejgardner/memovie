@@ -11,11 +11,7 @@
 .dialogue__content-alert {
     font-family: 'Raleway';
     font-size: 1.1rem;
-    background-color: rgba(255, 191, 102, 0.9);
     color: rgb(102, 60, 0);
-    padding: 0.6rem 1rem;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
 }
 
 .dialogue__content-alert > p {
