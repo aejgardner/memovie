@@ -5,6 +5,10 @@
     width: 25rem;
 }
 
+.mf__h1 {
+    margin: 0 auto 1.2rem;
+}
+
 .mf__title__input {
     position: relative;
 }
