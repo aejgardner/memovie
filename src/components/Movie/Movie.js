@@ -84,7 +84,7 @@ class Movie extends Component {
                 movieTitle: this.state.movieTitle,
                 movieGenre: this.state.movieGenre,
                 movieDirector: this.state.movieDirector,
-                movieStarring: this.state.movieStarring,
+                movieStarring: this.state.movieStarring.split(', '),
                 watched: this.state.watched
             }
 
@@ -96,15 +96,15 @@ class Movie extends Component {
     handleWatched(index) {
         this.setState({ watched: !this.state.watched })
 
-        let movie = {
-            movieTitle: this.state.movieTitle,
-            movieGenre: this.state.movieGenre,
-            movieDirector: this.state.movieDirector,
-            movieStarring: this.state.movieStarring,
-            watched: !this.state.watched
-        }
+        // let watched = {
+        //     movieTitle: this.state.movieTitle,
+        //     movieGenre: this.state.movieGenre,
+        //     movieDirector: this.state.movieDirector,
+        //     movieStarring: this.state.movieStarring.split(', '),
+        //     watched: !this.state.watched
+        // }
 
-        this.props.saveMovie(movie, index)
+        this.props.saveWatched(index)
     }
 
     // deletes specific movie user has clicked delete for
@@ -125,7 +125,7 @@ class Movie extends Component {
         const titleContent = movie.movieTitle;
 
         // movie stars property (an array) is joined back into a string, then checked to see if that string is empty. If so, "-" is displayed
-        let starringContent = movie.movieStarring;
+        let starringContent = movie.movieStarring.join(', ');
         starringContent = starringContent === "" ? "-" : starringContent;
 
         return (
