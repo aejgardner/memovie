@@ -182,7 +182,7 @@ class Movie extends Component {
                     <TableCell className={classes.tableCell} align="center">
                         <div className="flex__align__center">
                             <Button
-                                className={classes.watchedButton + "btn movie-table__btn flex-align-center"}
+                                className={classes.watchedButton + " btn movie-table__btn flex-align-center"}
                                 onClick={() => this.handleWatched(index)}>Watched
                         {watched
                                     ?
