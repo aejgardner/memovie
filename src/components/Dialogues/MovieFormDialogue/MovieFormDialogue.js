@@ -5,7 +5,14 @@ import AlertDialogue from '../../Dialogues/AlertDialogue';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import MovieFormInput from '../../MovieFormInput';
-import { StylesProvider } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = {
+    paper: {
+        backgroundColor: "#cfe8fc",
+        marginBottom: "1rem",
+    }
+};
 
 class MovieFormDialogue extends Component {
     constructor(props) {
@@ -76,7 +83,8 @@ class MovieFormDialogue extends Component {
 
     render() {
         const { movieTitle, movieGenre, movieDirector, movieStarring, warningDialogueOpen } = this.state;
-        const { handleMovieFormClose, movieFormDialogueOpen } = this.props;
+        const { handleMovieFormClose, movieFormDialogueOpen, classes } = this.props;
+
         return (
             <Dialog
                 open={movieFormDialogueOpen}
@@ -88,61 +96,55 @@ class MovieFormDialogue extends Component {
                     dialogueHeading="No movie title"
                     dialogueContent="Please enter a movie title to add a movie"
                 />
-                <DialogContent style={{ padding: "2rem" }}>
-                    <h1 className="center" style={{ margin: "0 auto 1.2rem" }}>Add a movie:</h1>
-                    <StylesProvider injectFirst>
-                        <Paper
-                            className="paper"
-                            style={{
-                                backgroundColor: "#cfe8fc"
-                            }}
-                            elevation={3}
+                <DialogContent>
+                    <h1 className="center mf__h1">Add a movie:</h1>
+                    <Paper
+                        className={classes.paper + " paper"}
+                        elevation={3}
+                    >
+                        <form
+                            onSubmit={this.handleSubmit}
+                            className="mf__form"
                         >
-                            <form
-                                onSubmit={this.handleSubmit}
-                                className="mf__form"
-                            >
-                                <MovieFormInput
-                                    label="Movie title"
-                                    faIcon="fas fa-asterisk fa-1x mf-asterisk"
-                                    id="title"
-                                    value={movieTitle}
-                                    onChange={e => this.handleChange(e, 'movieTitle')}
-                                />
+                            <MovieFormInput
+                                label="Movie title"
+                                faIcon="fas fa-asterisk fa-1x mf-asterisk"
+                                id="title"
+                                value={movieTitle}
+                                onChange={e => this.handleChange(e, 'movieTitle')}
+                            />
 
-                                <MovieFormInput
-                                    style={{ margin: "0" }}
-                                    label="Movie director"
-                                    id="director"
-                                    value={movieDirector}
-                                    onChange={e => this.handleChange(e, 'movieDirector')}
-                                />
+                            <MovieFormInput
+                                label="Movie director"
+                                id="director"
+                                value={movieDirector}
+                                onChange={e => this.handleChange(e, 'movieDirector')}
+                            />
 
-                                <MovieFormInput
-                                    label="Movie genre"
-                                    id="genre"
-                                    value={movieGenre}
-                                    onChange={e => this.handleChange(e, 'movieGenre')}
-                                />
+                            <MovieFormInput
+                                label="Movie genre"
+                                id="genre"
+                                value={movieGenre}
+                                onChange={e => this.handleChange(e, 'movieGenre')}
+                            />
 
-                                <MovieFormInput
-                                    label="Starring"
-                                    id="starring"
-                                    value={movieStarring}
-                                    onChange={e => this.handleChange(e, 'movieStarring')}
-                                />
-                                <small className="mf__small">Please put a comma and space between starring names</small>
-                                <small className="mf__small">*Required</small>
-                                <div className="center">
-                                    <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
-                                </div>
-                            </form>
-                        </Paper>
-                    </StylesProvider>
+                            <MovieFormInput
+                                label="Starring"
+                                id="starring"
+                                value={movieStarring}
+                                onChange={e => this.handleChange(e, 'movieStarring')}
+                            />
+                            <small className="mf__small">Please put a comma and space between starring names</small>
+                            <small className="mf__small">*Required</small>
+                            <div className="center">
+                                <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
+                            </div>
+                        </form>
+                    </Paper>
                 </DialogContent>
             </Dialog >
         );
     }
 }
 
-export default MovieFormDialogue;
+export default withStyles(styles)(MovieFormDialogue);
