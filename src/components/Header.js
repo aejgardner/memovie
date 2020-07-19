@@ -18,7 +18,7 @@ const Header = ({ children }) => {
         setOpen(false);
     };
 
-    // mui's usestyles hook, allows for custom classnames in material ui components
+    // mui's makestyles hook, allows for custom classnames in material ui components
     const useStyles = makeStyles({
         fontSize44: {
             fontSize: 44

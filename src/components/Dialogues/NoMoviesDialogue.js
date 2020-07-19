@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
 const NoMoviesDialogue = ({ handleClose, open }) => {
+    // mui's makestyles hook, allows for custom classnames in material ui components
     const useStyles = makeStyles({
         paper: {
             backgroundColor: "#cfe8fc",
@@ -19,7 +20,9 @@ const NoMoviesDialogue = ({ handleClose, open }) => {
         }
     });
 
+    // storing custom classes in classes variable
     const classes = useStyles();
+
     return (
         <Dialog
             open={open}

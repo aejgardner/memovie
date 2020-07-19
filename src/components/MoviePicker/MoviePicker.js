@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import { randomFilteredMovie } from '../../functions/randomFilteredMovie'
 import { withStyles } from "@material-ui/core/styles";
 
+// styles object that stores classes, gets passed through mui's withstyles higher order component (see export at the bottom). Allows custom classes to be added to mui components
 const styles = {
     paper: {
         overflowX: "auto"

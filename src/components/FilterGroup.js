@@ -14,7 +14,7 @@ const FilterGroup = ({ heading, filtersNoDuplicates, onChange }) => {
         setRotateChevron(!rotateChevron);
     }
 
-    // mui's usestyles hook, allows for custom classnames in material ui components
+    // mui's makestyles hook, allows for custom classnames in material ui components
     const useStyles = makeStyles({
         paper: {
             padding: "1rem"

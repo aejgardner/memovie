@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
 const FourOhFour = () => {
-    // mui's usestyles hook, allows for custom classnames in material ui components
+    // mui's makestyles hook, allows for custom classnames in material ui components
     const useStyles = makeStyles({
         h1: {
             textAlign: "center",
@@ -14,6 +14,7 @@ const FourOhFour = () => {
 
     // storing custom classes in classes variable
     const classes = useStyles();
+
     return (
         <div className="background-image">
             <div className="lp__container">

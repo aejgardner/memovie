@@ -34,6 +34,7 @@ const MovieTable = ({ movies }) => {
         setOpen(false);
     }
 
+    // mui's makestyles hook, allows for custom classnames in material ui components
     const useStyles = makeStyles({
         tableHeadCell: {
             fontSize: "1.1rem",
@@ -42,6 +43,7 @@ const MovieTable = ({ movies }) => {
         },
     });
 
+    // storing custom classes in classes variable
     const classes = useStyles()
 
     return (

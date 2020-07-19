@@ -11,6 +11,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { withStyles } from "@material-ui/core/styles";
 
+// styles object that stores classes, gets passed through mui's withstyles higher order component (see export at the bottom). Allows custom classes to be added to mui components
 const styles = {
     transition: {
         transition: "all 0.3s linear"

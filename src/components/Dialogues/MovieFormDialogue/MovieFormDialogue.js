@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import MovieFormInput from '../../MovieFormInput';
 import { withStyles } from "@material-ui/core/styles";
 
+// styles object that stores classes, gets passed through mui's withstyles higher order component (see export at the bottom). Allows custom classes to be added to mui components
 const styles = {
     paper: {
         backgroundColor: "#cfe8fc",
