@@ -38,11 +38,17 @@
 }
 
 @media only screen and (max-width: 660px) {
-    .picked-movie__h1 {
-        font-size: 3rem;
+    .dialogue__container {
+        padding: 1rem 0.5rem;
     }
     
-    .dialogue__container {
-        padding: 1rem;
+    .picked-movie__h1 {
+        font-size: 1.5rem;
     }
+
+    .picked-movie__director {
+        font-size: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
 }
