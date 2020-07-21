@@ -130,7 +130,7 @@ class MoviePicker extends Component {
         const directorsNoDuplicates = [...new Set(movies.map(movie => movie.movieDirector))];
         const genresNoDuplicates = [...new Set(movies.map(movie => movie.movieGenre))];
         // this flattens the array of starring arrays into one array
-        const starringNoDuplicates = [...new Set(movies.map(movie => movie.movieStarring).flat())];
+        const starringNoDuplicates = [...new Set(movies.map(movie => movie.movieStarring.split(', ')).flat())];
 
         return (
             <div className="background-image">
