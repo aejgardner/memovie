@@ -96,14 +96,6 @@ class Movie extends Component {
     handleWatched(index) {
         this.setState({ watched: !this.state.watched })
 
-        // let watched = {
-        //     movieTitle: this.state.movieTitle,
-        //     movieGenre: this.state.movieGenre,
-        //     movieDirector: this.state.movieDirector,
-        //     movieStarring: this.state.movieStarring.split(', '),
-        //     watched: !this.state.watched
-        // }
-
         this.props.saveWatched(index)
     }
 
