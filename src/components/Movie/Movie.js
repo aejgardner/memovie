@@ -84,7 +84,7 @@ class Movie extends Component {
                 movieTitle: this.state.movieTitle,
                 movieGenre: this.state.movieGenre,
                 movieDirector: this.state.movieDirector,
-                movieStarring: this.state.movieStarring.split(', '),
+                movieStarring: this.state.movieStarring,
                 watched: this.state.watched
             }
 
@@ -92,10 +92,9 @@ class Movie extends Component {
         }
     }
 
-    // switches the boolean for the watched property for the specific movie. Without the two bangs for this.state.watched (below), user has to click twice before the this.state.watched is actually reversed 
+    // toggles the boolean for the watched property for the specific movie
     handleWatched(index) {
-        this.setState({ watched: !this.state.watched })
-
+        // dispatch updated watched status to reducer
         this.props.saveWatched(index)
     }
 
@@ -109,7 +108,7 @@ class Movie extends Component {
         const { movie, index, classes } = this.props;
 
         // background turns green if user has clicked 'watched'
-        const watchedBackground = watched ? classes.greenBackground : "";
+        const watchedBackground = movie.watched ? classes.greenBackground : "";
 
         // these ternarys mean that a hyphen is rendered in the table if user leaves any form field empty. There isn't one for movie title as user cannot leave the title blank
         const genreContent = movie.movieGenre === "" ? "-" : movie.movieGenre;
@@ -117,7 +116,7 @@ class Movie extends Component {
         const titleContent = movie.movieTitle;
 
         // movie stars property (an array) is joined back into a string, then checked to see if that string is empty. If so, "-" is displayed
-        let starringContent = movie.movieStarring.join(', ');
+        let starringContent = movie.movieStarring;
         starringContent = starringContent === "" ? "-" : starringContent;
 
         return (
