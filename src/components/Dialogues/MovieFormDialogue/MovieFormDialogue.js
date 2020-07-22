@@ -63,7 +63,7 @@ class MovieFormDialogue extends Component {
                 movieTitle: movieTitle,
                 movieGenre: movieGenre,
                 movieDirector: movieDirector,
-                movieStarring: movieStarring.split(", "),
+                movieStarring: movieStarring,
                 watched: false
             }
 

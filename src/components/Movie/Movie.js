@@ -92,19 +92,10 @@ class Movie extends Component {
         }
     }
 
-    // switches the boolean for the watched property for the specific movie. Without the two bangs for this.state.watched (below), user has to click twice before the this.state.watched is actually reversed 
+    // toggles the boolean for the watched property for the specific movie
     handleWatched(index) {
-        this.setState({ watched: !this.state.watched })
-
-        let movie = {
-            movieTitle: this.state.movieTitle,
-            movieGenre: this.state.movieGenre,
-            movieDirector: this.state.movieDirector,
-            movieStarring: this.state.movieStarring,
-            watched: !this.state.watched
-        }
-
-        this.props.saveMovie(movie, index)
+        // dispatch updated watched status to reducer
+        this.props.saveWatched(index)
     }
 
     // deletes specific movie user has clicked delete for
@@ -117,7 +108,7 @@ class Movie extends Component {
         const { movie, index, classes } = this.props;
 
         // background turns green if user has clicked 'watched'
-        const watchedBackground = watched ? classes.greenBackground : "";
+        const watchedBackground = movie.watched ? classes.greenBackground : "";
 
         // these ternarys mean that a hyphen is rendered in the table if user leaves any form field empty. There isn't one for movie title as user cannot leave the title blank
         const genreContent = movie.movieGenre === "" ? "-" : movie.movieGenre;
