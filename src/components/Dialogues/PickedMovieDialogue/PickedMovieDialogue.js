@@ -34,7 +34,13 @@ const PickedMovieDialogue = ({ handleClose, open, pickedMovie }) => {
                         elevation={3}
                     >
                         <h1 className="picked-movie__h1">{pickedMovie.movieTitle}</h1>
-                        <p className="picked-movie__director">Director: {pickedMovie.movieDirector}</p>
+                        {pickedMovie.movieDirector !== ""
+                            ?
+                            <p className="picked-movie__director">Director: {pickedMovie.movieDirector}</p>
+                            :
+                            null
+                        }
+
                     </Paper>
                 </DialogContent>
                 <DialogActions className={classes.berp}>
