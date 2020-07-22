@@ -11,9 +11,6 @@ const NoMoviesDialogue = ({ handleClose, open }) => {
     const useStyles = makeStyles({
         paper: {
             backgroundColor: "#cfe8fc",
-            marginBottom: "0.5rem",
-            paddingTop: "2rem",
-            paddingBottom: "2rem",
         },
         paddingNone: {
             padding: "0"
@@ -30,7 +27,7 @@ const NoMoviesDialogue = ({ handleClose, open }) => {
         >
             <div className="dialogue__container">
                 <h1 className="dialogue__heading">No movies!</h1>
-                <DialogContent className={classes.paddingNone}>
+                <DialogContent>
                     <Paper
                         className={classes.paper + " paper"}
                         elevation={3}

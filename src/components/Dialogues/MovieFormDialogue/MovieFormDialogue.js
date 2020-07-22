@@ -11,6 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = {
     paper: {
         backgroundColor: "#cfe8fc",
+        padding: "1rem 1.5rem",
         marginBottom: "1rem",
     }
 };
@@ -100,7 +101,7 @@ class MovieFormDialogue extends Component {
                 <DialogContent>
                     <h1 className="center mf__h1">Add a movie:</h1>
                     <Paper
-                        className={classes.paper + " paper"}
+                        className={classes.paper}
                         elevation={3}
                     >
                         <form

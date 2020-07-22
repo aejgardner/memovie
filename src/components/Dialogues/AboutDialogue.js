@@ -11,9 +11,6 @@ const AboutDialogue = ({ handleAboutClose, aboutDialogueOpen }) => {
     const useStyles = makeStyles({
         paper: {
             backgroundColor: "#cfe8fc",
-            marginBottom: "1rem",
-            paddingTop: "2rem",
-            paddingBottom: "2rem",
         },
         paddingNone: {
             padding: "0"
@@ -30,7 +27,7 @@ const AboutDialogue = ({ handleAboutClose, aboutDialogueOpen }) => {
         >
             <div className="dialogue__container">
                 <h1 className="dialogue__heading">About MeMovie</h1>
-                <DialogContent className={classes.paddingNone}>
+                <DialogContent>
                     <Paper
                         className={classes.paper + " paper"}
                         elevation={3}
