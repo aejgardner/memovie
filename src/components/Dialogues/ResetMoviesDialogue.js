@@ -12,9 +12,6 @@ const ResetMoviesDialogue = ({ open, handleClose, handleReset }) => {
     const useStyles = makeStyles({
         paper: {
             backgroundColor: "rgba(255, 191, 102, 0.9)",
-            marginBottom: "0.5rem",
-            paddingTop: "2rem",
-            paddingBottom: "2rem",
         },
         paddingNone: {
             padding: "0"
@@ -31,7 +28,7 @@ const ResetMoviesDialogue = ({ open, handleClose, handleReset }) => {
         >
             <div className="dialogue__container">
                 <h1 className="dialogue__heading">Reset your movies?</h1>
-                <DialogContent className={classes.paddingNone}>
+                <DialogContent>
                     <Paper className={classes.paper + " paper"}
                         elevation={3}>
                         <div className="flex-align-center dialogue__content-alert">
