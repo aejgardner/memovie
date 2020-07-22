@@ -11,7 +11,6 @@ const PickedMovieDialogue = ({ handleClose, open, pickedMovie }) => {
     const useStyles = makeStyles({
         paper: {
             backgroundColor: "#cfe8fc",
-            padding: "8px 2px"
         },
         berp: {
             justifyContent: "center"
