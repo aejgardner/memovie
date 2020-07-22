@@ -1,5 +1,5 @@
 .dialogue__container {
-    padding: 1.3rem 2rem;
+    padding: 1rem;
 }
 
 .dialogue__heading {
@@ -35,7 +35,6 @@
 .picked-movie__director {
     text-align: center;
     font-size: 1.4rem;
-    padding-bottom: 1rem;
 }
 
 @media only screen and (max-width: 660px) {
