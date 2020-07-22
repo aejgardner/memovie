@@ -5,6 +5,7 @@
 
 .filters__container {
     padding: 1rem;
+    overflow-x: scroll;
 }
 
 .filters {
