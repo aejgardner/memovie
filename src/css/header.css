@@ -9,6 +9,7 @@
 .header__icon-home {
     grid-column: 1 / 2;
     color: black;
+    justify-self: start;
 }
 
 .header__h1 {
