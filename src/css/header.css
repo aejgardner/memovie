@@ -27,8 +27,7 @@
 
 .header__nav > a, .header__nav > button {
     font-size: 1.3rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
+    padding: 0.5rem;
 }
 
 .fa-circle {
