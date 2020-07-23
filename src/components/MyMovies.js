@@ -25,7 +25,7 @@ const MyMovies = () => {
                 <MovieFormDialogue handleMovieFormClose={handleClose} movieFormDialogueOpen={open} />
                 <div className="center">
                     <Button
-                        className="btn btn-secondary"
+                        className="btn btn-secondary mt-1"
                         onClick={handleClickOpen}
                     >Add a movie
                     </Button>

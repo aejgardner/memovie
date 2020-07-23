@@ -22,32 +22,6 @@ body {
     overflow-y: scroll;
 }
 
-.center {
-    margin: 0 auto;
-    text-align: center;
-}
-
-.flex-align-center {
-    display: flex; 
-    align-items: center;
-}
-
-.mt-1 {
-    margin-top: 1rem;
-}
-
-.mr-1 {
-    margin-right: 1rem;
-}
-
-.mb-1 {
-    margin-bottom: 1rem;
-}
-
-.ml-1 {
-    margin-left: 1rem;
-}
-
 .btn {
     border: none;
     border-radius: 4px;
@@ -78,6 +52,32 @@ body {
 
 .paper {
     padding: 1rem;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.flex-align-center {
+    display: flex; 
+    align-items: center;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.ml-1 {
+    margin-left: 1rem;
 }
 
 @media only screen and (max-width: 650px) {
