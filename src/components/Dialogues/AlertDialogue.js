@@ -12,9 +12,6 @@ const AlertDialogue = ({ open, handleClose, dialogueHeading, dialogueContent }) 
     const useStyles = makeStyles({
         paper: {
             backgroundColor: "rgba(255, 191, 102, 0.9)",
-            marginBottom: "0.5rem",
-            paddingTop: "2rem",
-            paddingBottom: "2rem",
         },
         paddingNone: {
             padding: "0"
@@ -31,7 +28,7 @@ const AlertDialogue = ({ open, handleClose, dialogueHeading, dialogueContent }) 
         >
             <div className="dialogue__container">
                 <h1 className="dialogue__heading">{dialogueHeading}</h1>
-                <DialogContent className={classes.paddingNone}>
+                <DialogContent>
                     <Paper
                         className={classes.paper + " paper"}
                         elevation={3}
