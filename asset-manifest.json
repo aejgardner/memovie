@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/aejgardner/memovie/static/css/main.9c3280f7.chunk.css",
+    "main.js": "/aejgardner/memovie/static/js/main.82165452.chunk.js",
+    "main.js.map": "/aejgardner/memovie/static/js/main.82165452.chunk.js.map",
+    "runtime-main.js": "/aejgardner/memovie/static/js/runtime-main.4891b638.js",
+    "runtime-main.js.map": "/aejgardner/memovie/static/js/runtime-main.4891b638.js.map",
+    "static/js/2.2e76e370.chunk.js": "/aejgardner/memovie/static/js/2.2e76e370.chunk.js",
+    "static/js/2.2e76e370.chunk.js.map": "/aejgardner/memovie/static/js/2.2e76e370.chunk.js.map",
+    "index.html": "/aejgardner/memovie/index.html",
+    "precache-manifest.66b47642afd84629c37473805f037b28.js": "/aejgardner/memovie/precache-manifest.66b47642afd84629c37473805f037b28.js",
+    "service-worker.js": "/aejgardner/memovie/service-worker.js",
+    "static/css/main.9c3280f7.chunk.css.map": "/aejgardner/memovie/static/css/main.9c3280f7.chunk.css.map",
+    "static/js/2.2e76e370.chunk.js.LICENSE.txt": "/aejgardner/memovie/static/js/2.2e76e370.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/aejgardner/memovie/static/media/film.8eef8843.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4891b638.js",
+    "static/js/2.2e76e370.chunk.js",
+    "static/css/main.9c3280f7.chunk.css",
+    "static/js/main.82165452.chunk.js"
+  ]
+}
