@@ -46,7 +46,7 @@ const FilterGroup = ({ heading, filtersNoDuplicates, onChange }) => {
                     onClick={handleFilters}
                 />
             </div>
-            {filtersNoDuplicates.length ?
+            {filtersNoDuplicates[0] !== "" &&
                 <Collapse in={showFilters}>
                     <Paper elevation={4} className={classes.paper}>
                         <div className={classes.flexColumn + " flex-align-center center"}>
@@ -67,8 +67,6 @@ const FilterGroup = ({ heading, filtersNoDuplicates, onChange }) => {
                         </div>
                     </Paper>
                 </Collapse>
-                :
-                null
             }
         </div>
     );
