@@ -30,13 +30,15 @@ const Header = ({ children }) => {
 
     return (
         <header className="header">
-            <Link className="header__icon-home" to="/"><MovieIcon className={classes.fontSize44} /></Link>
+            <div className="header__icon-container">
+                <Link className="header__icon-home" to="/"><MovieIcon className={classes.fontSize44} /></Link>
+            </div>
             <h1 className="header__h1" >{children}</h1>
             <nav className="header__nav">
                 <Link className="btn" to="movie-picker">Movie Picker</Link>
-                <i class="fas fa-circle"></i>
+                <i className="fas fa-circle"></i>
                 <Link className="btn" to="my-movies">My Movies</Link>
-                <i class="fas fa-circle"></i>
+                <i className="fas fa-circle"></i>
                 <AboutDialogue handleAboutClose={handleClose} aboutDialogueOpen={open} />
                 <Button
                     className="btn"

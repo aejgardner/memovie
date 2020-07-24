@@ -5,9 +5,12 @@
     align-items: center;
 }
 
+.header__icon-container {
+    width: 33%;
+}
+
 .header__icon-home {
     color: black;
-    width: 33%;
 }
 
 .header__h1 {
