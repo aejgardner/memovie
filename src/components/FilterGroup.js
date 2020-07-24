@@ -46,7 +46,8 @@ const FilterGroup = ({ heading, filtersNoDuplicates, onChange }) => {
                     onClick={handleFilters}
                 />
             </div>
-            {filtersNoDuplicates[0] !== "" &&
+            {/* these conditions mean that nothing drops down unless the user has populated a filter group with at least one filter option */}
+            {filtersNoDuplicates[0] !== "" && filtersNoDuplicates.length > 0 &&
                 <Collapse in={showFilters}>
                     <Paper elevation={4} className={classes.paper}>
                         <div className={classes.flexColumn + " flex-align-center center"}>

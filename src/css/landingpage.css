@@ -52,10 +52,11 @@
     }
 
     .lp__btn-group {
-        width: 70%;
+        width: 80%;
     }
 
     .lp__btn {
-        padding: 0.7rem;
+        padding: 0.4rem;
+        font-size: 1.1rem;
     }
 }
