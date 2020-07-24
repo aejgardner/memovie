@@ -11,6 +11,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 
 const MovieTable = ({ movies }) => {
     const [open, setOpen] = useState(false);
@@ -33,12 +34,17 @@ const MovieTable = ({ movies }) => {
         setOpen(false);
     }
 
-    // inline styling for table head cells
-    const tableHeadStyling = {
-        fontSize: "1.1rem",
-        padding: "0.8rem 0",
-        fontWeight: "bold"
-    }
+    // mui's makestyles hook, allows for custom classnames in material ui components
+    const useStyles = makeStyles({
+        tableHeadCell: {
+            fontSize: "1.1rem",
+            fontWeight: "bold"
+        },
+    });
+
+    // storing custom classes in classes variable
+    const classes = useStyles()
+
     return (
         <>
             {movies.length ?
@@ -50,15 +56,31 @@ const MovieTable = ({ movies }) => {
                     />
                     <TableContainer
                         component={Paper}
-                        className="movie__table__container"
+                        className="movie-table__container"
                     >
-                        <Table size="small" style={{ marginBottom: "1rem" }}>
+                        <Table size="small">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell style={tableHeadStyling} align="center">Movie title</TableCell>
-                                    <TableCell style={tableHeadStyling} align="center">Director</TableCell>
-                                    <TableCell style={tableHeadStyling} align="center">Genre</TableCell>
-                                    <TableCell style={tableHeadStyling} align="center">Starring</TableCell>
+                                    <TableCell
+                                        className={classes.tableHeadCell}
+                                        align="center"
+                                    >Movie title
+                                    </TableCell>
+                                    <TableCell
+                                        className={classes.tableHeadCell}
+                                        align="center"
+                                    >Director
+                                    </TableCell>
+                                    <TableCell
+                                        className={classes.tableHeadCell}
+                                        align="center"
+                                    >Genre
+                                    </TableCell>
+                                    <TableCell
+                                        className={classes.tableHeadCell}
+                                        align="center"
+                                    >Starring
+                                    </TableCell>
                                     <TableCell></TableCell>
                                     <TableCell></TableCell>
                                     <TableCell></TableCell>
@@ -70,11 +92,13 @@ const MovieTable = ({ movies }) => {
                                 ))}
                             </TableBody>
                         </Table>
-                        <Button className="btn" onClick={handleClickOpen}>Reset</Button>
+                        <div className="center mt-1">
+                            <Button className="btn" onClick={handleClickOpen}>Reset</Button>
+                        </div>
                     </TableContainer>
                 </>
                 :
-                <h2 className="center movie__table__h2">No movies! Add some by clicking the button above</h2>
+                <h2 className="center movie-table__h2">No movies! Add some by clicking the button above</h2>
             }
         </>
     );

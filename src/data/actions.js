@@ -14,6 +14,11 @@ export const updateMovie = (movie, index) => ({
     index: index
 })
 
+export const updateWatched = (index) => ({
+    type: "updateWatched",
+    index: index
+})
+
 export const resetMovies = () => ({
     type: "resetMovies"
 })

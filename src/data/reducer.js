@@ -26,6 +26,14 @@ const updateMovie = (state, { updatedMovie, index }) => {
     }
 }
 
+// updates a movie's watched property to opposite boolean
+const updateWatched = (state, { index }) => {
+    return {
+        ...state,
+        movies: state.movies.map((movie, i) => i === index ? { ...movie, watched: !movie.watched } : movie)
+    }
+}
+
 // resets user's movie table
 const resetMovies = () => {
     return {
@@ -46,6 +54,7 @@ const reducer = (state, action) => {
         case "submitMovie": return submitMovie(state, action);
         case "deleteMovie": return deleteMovie(state, action);
         case "updateMovie": return updateMovie(state, action);
+        case "updateWatched": return updateWatched(state, action);
         case "resetMovies": return resetMovies(state, action);
         case "savePickedMovie": return savePickedMovie(state, action);
         default: return state;

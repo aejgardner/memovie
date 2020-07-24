@@ -5,6 +5,10 @@
     width: 25rem;
 }
 
+.mf__h1 {
+    margin: 0 auto 0.8rem;
+}
+
 .mf__title__input {
     position: relative;
 }
@@ -13,10 +17,6 @@
     position: absolute;
     right: -10px;
     font-size: 8px;
-}
-
-.mf__paper {
-    padding: 3rem;
 }
 
 .mf__small {

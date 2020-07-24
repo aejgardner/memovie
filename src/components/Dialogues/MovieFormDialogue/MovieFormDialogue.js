@@ -5,7 +5,16 @@ import AlertDialogue from '../../Dialogues/AlertDialogue';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import MovieFormInput from '../../MovieFormInput';
-import { StylesProvider } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
+
+// styles object that stores classes, gets passed through mui's withstyles higher order component (see export at the bottom). Allows custom classes to be added to mui components
+const styles = {
+    paper: {
+        backgroundColor: "#cfe8fc",
+        padding: "1rem 1.5rem",
+        marginBottom: "1rem",
+    }
+};
 
 class MovieFormDialogue extends Component {
     constructor(props) {
@@ -54,7 +63,7 @@ class MovieFormDialogue extends Component {
                 movieTitle: movieTitle,
                 movieGenre: movieGenre,
                 movieDirector: movieDirector,
-                movieStarring: movieStarring.split(", "),
+                movieStarring: movieStarring,
                 watched: false
             }
 
@@ -76,7 +85,8 @@ class MovieFormDialogue extends Component {
 
     render() {
         const { movieTitle, movieGenre, movieDirector, movieStarring, warningDialogueOpen } = this.state;
-        const { handleMovieFormClose, movieFormDialogueOpen } = this.props;
+        const { handleMovieFormClose, movieFormDialogueOpen, classes } = this.props;
+
         return (
             <Dialog
                 open={movieFormDialogueOpen}
@@ -88,61 +98,55 @@ class MovieFormDialogue extends Component {
                     dialogueHeading="No movie title"
                     dialogueContent="Please enter a movie title to add a movie"
                 />
-                <DialogContent style={{ padding: "2rem" }}>
-                    <h1 className="center" style={{ margin: "0 auto 1.2rem" }}>Add a movie:</h1>
-                    <StylesProvider injectFirst>
-                        <Paper
-                            className="mf__paper"
-                            style={{
-                                backgroundColor: "#cfe8fc"
-                            }}
-                            elevation={3}
+                <DialogContent>
+                    <h1 className="center mf__h1">Add a movie:</h1>
+                    <Paper
+                        className={classes.paper}
+                        elevation={3}
+                    >
+                        <form
+                            onSubmit={this.handleSubmit}
+                            className="mf__form"
                         >
-                            <form
-                                onSubmit={this.handleSubmit}
-                                className="mf__form"
-                            >
-                                <MovieFormInput
-                                    label="Movie title"
-                                    faIcon="fas fa-asterisk fa-1x mf-asterisk"
-                                    id="title"
-                                    value={movieTitle}
-                                    onChange={e => this.handleChange(e, 'movieTitle')}
-                                />
+                            <MovieFormInput
+                                label="Movie title"
+                                faIcon="fas fa-asterisk fa-1x mf-asterisk"
+                                id="title"
+                                value={movieTitle}
+                                onChange={e => this.handleChange(e, 'movieTitle')}
+                            />
 
-                                <MovieFormInput
-                                    style={{ margin: "0" }}
-                                    label="Movie director"
-                                    id="director"
-                                    value={movieDirector}
-                                    onChange={e => this.handleChange(e, 'movieDirector')}
-                                />
+                            <MovieFormInput
+                                label="Movie director"
+                                id="director"
+                                value={movieDirector}
+                                onChange={e => this.handleChange(e, 'movieDirector')}
+                            />
 
-                                <MovieFormInput
-                                    label="Movie genre"
-                                    id="genre"
-                                    value={movieGenre}
-                                    onChange={e => this.handleChange(e, 'movieGenre')}
-                                />
+                            <MovieFormInput
+                                label="Movie genre"
+                                id="genre"
+                                value={movieGenre}
+                                onChange={e => this.handleChange(e, 'movieGenre')}
+                            />
 
-                                <MovieFormInput
-                                    label="Starring"
-                                    id="starring"
-                                    value={movieStarring}
-                                    onChange={e => this.handleChange(e, 'movieStarring')}
-                                />
-                                <small className="mf__small">Please put a comma and space between starring names</small>
-                                <small className="mf__small">*Required</small>
-                                <div className="center">
-                                    <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
-                                </div>
-                            </form>
-                        </Paper>
-                    </StylesProvider>
+                            <MovieFormInput
+                                label="Starring"
+                                id="starring"
+                                value={movieStarring}
+                                onChange={e => this.handleChange(e, 'movieStarring')}
+                            />
+                            <small className="mf__small">Please put a comma and space between starring names</small>
+                            <small className="mf__small">*Required</small>
+                            <div className="center">
+                                <Button className="btn" onClick={this.handleSubmit}>Add movie</Button>
+                            </div>
+                        </form>
+                    </Paper>
                 </DialogContent>
             </Dialog >
         );
     }
 }
 
-export default MovieFormDialogue;
+export default withStyles(styles)(MovieFormDialogue);

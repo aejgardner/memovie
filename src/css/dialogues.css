@@ -1,20 +1,17 @@
 .dialogue__container {
-    padding: 1.3rem 2rem;
+    padding: 1rem;
 }
 
 .dialogue__heading {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.5rem;
     color: var(--font-black);
+    text-align: center;
 }
 
 .dialogue__content-alert {
     font-family: 'Raleway';
     font-size: 1.1rem;
-    background-color: rgba(255, 191, 102, 0.9);
     color: rgb(102, 60, 0);
-    padding: 0.6rem 1rem;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
 }
 
 .dialogue__content-alert > p {
@@ -24,27 +21,34 @@
 .no-movies__h3 {
     margin: 0;
     margin-bottom: 0.7rem;
-    background-color: #b4ddff; 
-    padding: 0.8rem; 
-    border-radius: 5px;
 }
 
 .picked-movie__h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: var(--font-black);
     margin: 0;
-    margin-bottom: 0.7rem;
-    background-color: #b4ddff; 
-    padding: 0.8rem 1rem; 
-    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+    word-break: break-word;
 }
 
 .picked-movie__director {
-    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 @media only screen and (max-width: 660px) {
-    .picked-movie__h1 {
-        font-size: 3rem;
+    .dialogue__container {
+        padding: 1rem 0.5rem;
     }
+    
+    .picked-movie__h1 {
+        font-size: 1.5rem;
+    }
+
+    .picked-movie__director {
+        font-size: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
 }

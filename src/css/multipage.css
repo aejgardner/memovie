@@ -22,32 +22,6 @@ body {
     overflow-y: scroll;
 }
 
-.center {
-    margin: 0 auto;
-    text-align: center;
-}
-
-.flex-align-center {
-    display: flex; 
-    align-items: center;
-}
-
-.mt-1 {
-    margin-top: 1rem;
-}
-
-.mr-1 {
-    margin-right: 1rem;
-}
-
-.mb-1 {
-    margin-bottom: 1rem;
-}
-
-.ml-1 {
-    margin-left: 1rem;
-}
-
 .btn {
     border: none;
     border-radius: 4px;
@@ -76,8 +50,42 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+.paper {
+    padding: 1rem;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.flex-align-center {
+    display: flex; 
+    align-items: center;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
 @media only screen and (max-width: 650px) {
     .btn {
         font-size: 1.2rem;
+    }
+
+    .paper {
+        padding: 1rem;
     }
 }

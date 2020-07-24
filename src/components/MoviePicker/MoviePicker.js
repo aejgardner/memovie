@@ -7,6 +7,24 @@ import NoMoviesDialogue from "../Dialogues/NoMoviesDialogue";
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import { randomFilteredMovie } from '../../functions/randomFilteredMovie'
+import { withStyles } from "@material-ui/core/styles";
+
+// styles object that stores classes, gets passed through mui's withstyles higher order component (see export at the bottom). Allows custom classes to be added to mui components
+const styles = {
+    paper: {
+        overflowX: "auto"
+    },
+    spaceAround: {
+        width: "100%",
+        justifyContent: "space-around"
+    },
+    roboto: {
+        fontFamily: "Roboto, sans-serif"
+    },
+    marginLeft: {
+        marginLeft: "0.3rem"
+    }
+};
 
 class MoviePicker extends Component {
     constructor(props) {
@@ -106,13 +124,13 @@ class MoviePicker extends Component {
 
     render() {
         const { movieDialogueOpen, warningDialogueOpen } = this.state
-        const { movies } = this.props
+        const { movies, classes } = this.props
 
         // the new sets in these variables remove duplicate filters, so each filter is only listed once
         const directorsNoDuplicates = [...new Set(movies.map(movie => movie.movieDirector))];
         const genresNoDuplicates = [...new Set(movies.map(movie => movie.movieGenre))];
         // this flattens the array of starring arrays into one array
-        const starringNoDuplicates = [...new Set(movies.map(movie => movie.movieStarring).flat())];
+        const starringNoDuplicates = [...new Set(movies.map(movie => movie.movieStarring.split(', ')).flat())];
 
         return (
             <div className="background-image">
@@ -121,7 +139,7 @@ class MoviePicker extends Component {
                     <NoMoviesDialogue handleClose={this.handleWarningDialogueClose} open={warningDialogueOpen} />
                     <Header>Movie Picker</Header>
                     <h3 className="center mp__h3">Pick a random movie from your movies, with or without filters</h3>
-                    <Paper style={{ overflowX: "auto" }} elevation={4}>
+                    <Paper className={classes.overflowX} elevation={4}>
                         <div className="filters__container">
                             <div className="filters">
 
@@ -150,25 +168,24 @@ class MoviePicker extends Component {
                                 <div className="filters__group filters__group-watched-before">
                                     <h4 className="filters__heading">Watched before</h4>
                                     <div
-                                        className="flex-align-center"
-                                        style={{ width: "100%", justifyContent: "space-around" }}
+                                        className={classes.spaceAround + " flex-align-center"}
                                     >
                                         <div className="flex-align-center filters__watched-checkbox">
-                                            <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="yes">Yes</label>
+                                            <label className={classes.roboto} htmlFor="yes">Yes</label>
                                             <input
                                                 id="yes"
                                                 type="checkbox"
                                                 onChange={() => this.handleWatched(true)}
-                                                style={{ marginLeft: "0.3rem" }}
+                                                className={classes.marginLeft}
                                             />
                                         </div>
                                         <div className="flex-align-center filters__watched-checkbox">
-                                            <label style={{ fontFamily: "Roboto, sans-serif" }} htmlFor="no">No</label>
+                                            <label className={classes.roboto} htmlFor="no">No</label>
                                             <input
                                                 id="no"
                                                 type="checkbox"
                                                 onChange={() => this.handleWatched(false)}
-                                                style={{ marginLeft: "0.3rem" }}
+                                                className={classes.marginLeft}
                                             />
                                         </div>
                                     </div>
@@ -186,4 +203,4 @@ class MoviePicker extends Component {
     }
 }
 
-export default MoviePicker;
+export default withStyles(styles)(MoviePicker);

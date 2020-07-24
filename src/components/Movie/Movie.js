@@ -9,7 +9,28 @@ import DoneIcon from '@material-ui/icons/Done';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CancelIcon from '@material-ui/icons/Cancel';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { withStyles } from "@material-ui/core/styles";
 
+// styles object that stores classes, gets passed through mui's withstyles higher order component (see export at the bottom). Allows custom classes to be added to mui components
+const styles = {
+    transition: {
+        transition: "all 0.3s linear"
+    },
+    greenBackground: {
+        backgroundColor: "#8affa9"
+    },
+    tableCell: {
+        fontSize: "1rem"
+    },
+    watchedButton: {
+        fontFamily: "Roboto, arial",
+        fontSize: "1rem",
+        overflowX: "auto"
+    },
+    watchedIcon: {
+        marginLeft: "0.4rem"
+    }
+};
 class Movie extends Component {
     constructor(props) {
         super(props);
@@ -71,19 +92,10 @@ class Movie extends Component {
         }
     }
 
-    // switches the boolean for the watched property for the specific movie. Without the two bangs for this.state.watched (below), user has to click twice before the this.state.watched is actually reversed 
+    // toggles the boolean for the watched property for the specific movie
     handleWatched(index) {
-        this.setState({ watched: !this.state.watched })
-
-        let movie = {
-            movieTitle: this.state.movieTitle,
-            movieGenre: this.state.movieGenre,
-            movieDirector: this.state.movieDirector,
-            movieStarring: this.state.movieStarring,
-            watched: !this.state.watched
-        }
-
-        this.props.saveMovie(movie, index)
+        // dispatch updated watched status to reducer
+        this.props.saveWatched(index)
     }
 
     // deletes specific movie user has clicked delete for
@@ -93,10 +105,10 @@ class Movie extends Component {
 
     render() {
         const { movieTitle, movieGenre, movieDirector, movieStarring, editing, watched, open } = this.state;
-        const { movie, index } = this.props;
+        const { movie, index, classes } = this.props;
 
         // background turns green if user has clicked 'watched'
-        const watchedBackground = watched ? "#8affa9" : "";
+        const watchedBackground = movie.watched ? classes.greenBackground : "";
 
         // these ternarys mean that a hyphen is rendered in the table if user leaves any form field empty. There isn't one for movie title as user cannot leave the title blank
         const genreContent = movie.movieGenre === "" ? "-" : movie.movieGenre;
@@ -104,20 +116,8 @@ class Movie extends Component {
         const titleContent = movie.movieTitle;
 
         // movie stars property (an array) is joined back into a string, then checked to see if that string is empty. If so, "-" is displayed
-        let starringContent = movie.movieStarring.join(", ");
+        let starringContent = movie.movieStarring;
         starringContent = starringContent === "" ? "-" : starringContent;
-
-        // inline styling for cells
-        let cellStyling = {
-            fontSize: "1rem"
-        }
-
-        // inline styling for watched button
-        let watchedButtonStyling = {
-            fontFamily: "Roboto, arial",
-            fontSize: "1rem",
-            overflowX: "auto"
-        }
 
         return (
             <>
@@ -127,8 +127,8 @@ class Movie extends Component {
                     dialogueHeading="No movie title"
                     dialogueContent="Please include a movie title"
                 />
-                <TableRow style={{ backgroundColor: watchedBackground, transition: "all 0.3s linear" }}>
-                    <TableCell style={cellStyling} align="center">
+                <TableRow className={watchedBackground + " " + classes.transition}>
+                    <TableCell className={classes.tableCell} align="center">
                         {editing
                             ?
                             (<TextField
@@ -139,7 +139,7 @@ class Movie extends Component {
                             (titleContent)
                         }
                     </TableCell>
-                    <TableCell className="table-cell" style={cellStyling} align="center">
+                    <TableCell className={classes.tableCell} align="center">
                         {editing
                             ?
                             (<TextField
@@ -150,7 +150,7 @@ class Movie extends Component {
                             (directorContent)
                         }
                     </TableCell>
-                    <TableCell style={cellStyling} align="center">
+                    <TableCell className={classes.tableCell} align="center">
                         {editing
                             ?
                             (<TextField
@@ -161,7 +161,7 @@ class Movie extends Component {
                             (genreContent)
                         }
                     </TableCell>
-                    <TableCell style={cellStyling} align="center">
+                    <TableCell className={classes.tableCell} align="center">
                         {editing ?
                             (<TextField
                                 value={movieStarring}
@@ -171,17 +171,16 @@ class Movie extends Component {
                             (starringContent)
                         }
                     </TableCell>
-                    <TableCell style={cellStyling} align="center">
+                    <TableCell className={classes.tableCell} align="center">
                         <div className="flex__align__center">
                             <Button
-                                className="btn movie__table__btn flex-align-center"
-                                inlineStyling={watchedButtonStyling}
+                                className={classes.watchedButton + " btn movie-table__btn flex-align-center"}
                                 onClick={() => this.handleWatched(index)}>Watched
                         {watched
                                     ?
-                                    <CheckCircleIcon style={{ marginLeft: "0.4rem" }} />
+                                    <CheckCircleIcon className={classes.watchedIcon} />
                                     :
-                                    <CancelIcon style={{ marginLeft: "0.4rem" }} />
+                                    <CancelIcon className={classes.watchedIcon} />
                                 }
                             </Button>
                         </div>
@@ -189,14 +188,14 @@ class Movie extends Component {
                     <TableCell align="center">
                         {editing
                             ?
-                            (<Button className="btn movie__table__btn" onClick={() => this.handleUpdate(index)}><DoneIcon /></Button>)
+                            (<Button className="btn movie-table__btn" onClick={() => this.handleUpdate(index)}><DoneIcon /></Button>)
                             :
-                            (<Button className="btn movie__table__btn" onClick={this.handleEdit}><EditIcon /></Button>)
+                            (<Button className="btn movie-table__btn" onClick={this.handleEdit}><EditIcon /></Button>)
                         }
                     </TableCell>
                     <TableCell align="center">
                         <Button
-                            className="btn movie__table__btn"
+                            className="btn movie-table__btn"
                             onClick={() => this.handleDelete(index)}
                         >
                             <DeleteIcon />
@@ -208,4 +207,4 @@ class Movie extends Component {
     }
 }
 
-export default Movie;
+export default withStyles(styles)(Movie);
