@@ -38,7 +38,8 @@ const MovieTable = ({ movies }) => {
     const useStyles = makeStyles({
         tableHeadCell: {
             fontSize: "1.1rem",
-            fontWeight: "bold"
+            fontWeight: "bold",
+            whiteSpace: "nowrap"
         },
     });
 
