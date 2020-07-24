@@ -5,7 +5,7 @@ import MoviePicker from "./MoviePicker";
 import FourOhFour from "./FourOhFour";
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch
 } from "react-router-dom";
