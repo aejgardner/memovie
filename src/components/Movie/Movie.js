@@ -35,13 +35,12 @@ class Movie extends Component {
     constructor(props) {
         super(props);
 
-        // the first 5 properties here are each movie object's proerties which can be edited
+        // the first 4 properties here are each movie object's proerties which can be edited
         this.state = {
             movieTitle: this.props.movie.movieTitle,
             movieGenre: this.props.movie.movieGenre,
             movieDirector: this.props.movie.movieDirector,
             movieStarring: this.props.movie.movieStarring,
-            watched: this.props.movie.watched,
             editing: false,
             open: false
         }
@@ -104,7 +103,7 @@ class Movie extends Component {
     }
 
     render() {
-        const { movieTitle, movieGenre, movieDirector, movieStarring, editing, watched, open } = this.state;
+        const { movieTitle, movieGenre, movieDirector, movieStarring, editing, open } = this.state;
         const { movie, index, classes } = this.props;
 
         // background turns green if user has clicked 'watched'
@@ -176,7 +175,7 @@ class Movie extends Component {
                             <Button
                                 className={classes.watchedButton + " btn movie-table__btn flex-align-center"}
                                 onClick={() => this.handleWatched(index)}>Watched
-                        {watched
+                                {movie.watched
                                     ?
                                     <CheckCircleIcon className={classes.watchedIcon} />
                                     :
