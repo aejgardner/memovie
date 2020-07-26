@@ -104,7 +104,7 @@ class Movie extends Component {
     }
 
     render() {
-        const { movieTitle, movieGenre, movieDirector, movieStarring, editing, watched, open } = this.state;
+        const { movieTitle, movieGenre, movieDirector, movieStarring, editing, open } = this.state;
         const { movie, index, classes } = this.props;
 
         // background turns green if user has clicked 'watched'
@@ -176,7 +176,7 @@ class Movie extends Component {
                             <Button
                                 className={classes.watchedButton + " btn movie-table__btn flex-align-center"}
                                 onClick={() => this.handleWatched(index)}>Watched
-                        {watched
+                        {movie.watched
                                     ?
                                     <CheckCircleIcon className={classes.watchedIcon} />
                                     :
