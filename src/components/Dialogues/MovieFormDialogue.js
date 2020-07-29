@@ -63,10 +63,8 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
         dispatch({ type: "warningDialogueClose" })
     };
 
-    // creating custom hook for useDispatch which will dispatch a movie to the reducer
-    const dispatchMovie = useDispatch();
-
     // handles form submission
+    const dispatchMovie = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault()
 
