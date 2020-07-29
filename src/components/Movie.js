@@ -14,7 +14,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CancelIcon from '@material-ui/icons/Cancel';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
-// styles object that stores classes, gets passed through mui's withstyles higher order component (see export at the bottom). Allows custom classes to be added to mui components
+// mui's makestyles hook, allows for custom classnames in material ui components
 const useStyles = makeStyles({
     transition: {
         transition: "all 0.3s linear"
@@ -99,7 +99,7 @@ const Movie = ({ index, movie }) => {
         }
     }
 
-    // toggles the boolean for the watched property for the specific movie
+    // toggles the boolean for the watched property for the specific movie in global state
     const dispatchWatchedMovie = useDispatch();
     const handleWatched = (index) => {
         dispatchWatchedMovie(updateWatched(index));
@@ -120,7 +120,7 @@ const Movie = ({ index, movie }) => {
     // storing custom classes in classes variable
     const classes = useStyles();
 
-    // background turns green if user has clicked 'watched'
+    // background toggles green if user has clicked 'watched' button
     const watchedBackground = movie.watched ? classes.greenBackground : "";
 
     return (
