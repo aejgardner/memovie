@@ -48,6 +48,7 @@ const MovieTable = ({ movies }) => {
 
     return (
         <>
+            {console.log(movies)}
             {movies.length ?
                 <>
                     <ResetMoviesDialogue
