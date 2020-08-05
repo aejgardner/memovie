@@ -1,7 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateMovie, deleteMovie, resetMovies } from '../data/actions';
-import { makeStyles } from "@material-ui/core/styles";
 import Header from './Header';
 import Button from './Button';
 import ResetMoviesDialogue from './Dialogues/ResetMoviesDialogue';
@@ -24,27 +23,6 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import MaterialTable from 'material-table'
-
-// mui's makestyles hook, allows for custom classnames in material ui components
-const useStyles = makeStyles({
-    transition: {
-        transition: "all 0.3s linear"
-    },
-    greenBackground: {
-        backgroundColor: "#8affa9"
-    },
-    tableCell: {
-        fontSize: "1rem"
-    },
-    watchedButton: {
-        fontFamily: "Roboto, arial",
-        fontSize: "1rem",
-        overflowX: "auto"
-    },
-    watchedIcon: {
-        marginLeft: "0.4rem"
-    }
-});
 
 // material ui table icons
 const tableIcons = {
@@ -129,12 +107,6 @@ const MyMovies = () => {
         },
     ]);
 
-    // storing custom classes in classes variable
-    const classes = useStyles();
-
-    // // background toggles green if user has clicked 'watched' button
-    // const watchedBackground = rowData.movieWatched ? classes.greenBackground : "";
-
     return (
         <div className="background-image">
             <Container width="70%">
@@ -199,7 +171,7 @@ const MyMovies = () => {
                             }}
                         />
                         <div className="center mt-1">
-                            <Button className="btn" onClick={handleResetWarningOpen}>Reset</Button>
+                            <Button className="btn btn-secondary mb-1" onClick={handleResetWarningOpen}>Reset</Button>
                         </div>
                     </>
                     :
