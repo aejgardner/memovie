@@ -1,36 +1,39 @@
 import initial from "./initial";
 
 // adds submitted movies to movies array in initial state
-const submitMovie = (state, action) => {
+const submitMovie = (state, { movie }) => {
     return {
         ...state,
-        movies: [...state.movies, action.movie]
+        movies: [...state.movies, movie]
     }
 }
 
 // deletes specific movie from user's movie table
 const deleteMovie = (state, action) => {
+    const { payload: index } = action;
+    console.log(index)
     return {
         ...state,
-        movies: state.movies.filter((_, index) => {
-            return index !== action.index
+        movies: state.movies.filter((_, i) => {
+            return i !== index
         })
     }
 }
 
 // updates a movie's details
-const updateMovie = (state, { updatedMovie, index }) => {
+const updateMovie = (state, { movies }) => {
     return {
         ...state,
-        movies: state.movies.map((movie, i) => i === index ? updatedMovie : movie)
+        movies: movies
     }
 }
 
 // updates a movie's watched property to opposite boolean
-const updateWatched = (state, { index }) => {
+const updateWatched = (state, action) => {
+    const { payload: { movieWatched, tableData: { id: index } } } = action;
     return {
         ...state,
-        movies: state.movies.map((movie, i) => i === index ? { ...movie, watched: !movie.watched } : movie)
+        movies: state.movies.map((movie, i) => i === index ? { ...movie, movieWatched: !movieWatched } : movie)
     }
 }
 

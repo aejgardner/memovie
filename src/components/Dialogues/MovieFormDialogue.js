@@ -1,5 +1,4 @@
-import React from 'react';
-import { useImmerReducer } from 'use-immer';
+import React, { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { submitMovie } from '../../data/actions';
 import Button from '../Button';
@@ -20,43 +19,64 @@ const useStyles = makeStyles({
 });
 
 // local reducer that handles updating local state properties (initialised in the initialState variable below)
-const movieFormReducer = (draft, action) => {
+const movieFormReducer = (state, action) => {
     switch (action.type) {
-        case 'fieldNameChange': {
-            draft[action.fieldName] = action.payload;
-            return
-        }
-        case 'warningDialogueOpen': {
-            draft.warningDialogueOpen = true;
-            return
-        }
-        case 'warningDialogueClose': {
-            draft.warningDialogueOpen = false;
-            return
-        }
-        case 'resetForm': {
-            draft.movieTitle = "";
-            draft.movieGenre = "";
-            draft.movieDirector = "";
-            draft.movieStarring = "";
-            return;
-        }
+        case 'fieldNameChange':
+            return {
+                ...state,
+                movie: {
+                    ...state.movie,
+                    [action.payload.fieldName]: action.payload.value
+                }
+            }
+        case 'warningDialogueOpen':
+            return {
+                warningDialogueOpen: true
+            }
+        case 'warningDialogueClose':
+            return {
+                ...state,
+                warningDialogueOpen: false
+            }
+        case 'resetForm':
+            return {
+                ...state,
+                movie: {
+                    movieTitle: "",
+                    movieGenre: "",
+                    movieDirector: "",
+                    movieStarring: "",
+                    movieWatched: false,
+                }
+            }
         default: return;
     }
 }
 
 // initial state of component
 const initialState = {
-    movieTitle: "",
-    movieGenre: "",
-    movieDirector: "",
-    movieStarring: "",
+    movie: {
+        movieTitle: "",
+        movieGenre: "",
+        movieDirector: "",
+        movieStarring: "",
+        movieWatched: false,
+    },
     warningDialogueOpen: false
 }
 
 const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
-    const [state, dispatch] = useImmerReducer(movieFormReducer, initialState);
-    const { movieTitle, movieGenre, movieDirector, movieStarring, warningDialogueOpen } = state;
+    const [state, dispatch] = useReducer(movieFormReducer, initialState);
+    const {
+        movie: {
+            movieTitle,
+            movieGenre,
+            movieDirector,
+            movieStarring
+        },
+        warningDialogueOpen
+    } = state;
+    const dispatchAction = useDispatch();
 
     // handles closing warning dialogue
     const handleWarningDialogueClose = () => {
@@ -64,32 +84,22 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
     };
 
     // handles form submission
-    const dispatchMovie = useDispatch();
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        const { movie } = state;
+
         // if user hasn't entered a movie title, warning dialogue shows informing them that they must
-        if (state.movieTitle === "") {
+        if (movie.movieTitle === "") {
             dispatch({ type: "warningDialogueOpen" })
         } else {
-            const { movieTitle, movieGenre, movieDirector, movieStarring } = state;
+            // dispatches user's form entries to reducer
+            dispatchAction(submitMovie(movie));
 
-            // a movie object is made from the state properties, with an added 'watched' property that is initialised to false
-            let movie = {
-                movieTitle: movieTitle,
-                movieGenre: movieGenre,
-                movieDirector: movieDirector,
-                movieStarring: movieStarring,
-                watched: false
-            }
-
-            // dispatch user's form entries to reducer
-            dispatchMovie(submitMovie(movie));
-
-            // reset form after submission
+            // resets form after submission
             dispatch({ type: "resetForm" })
 
-            // close dialogue once form is submitted
+            // closes dialogue once form is submitted
             handleMovieFormClose()
         }
     }
@@ -125,8 +135,10 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
                             value={movieTitle}
                             onChange={e => dispatch({
                                 type: 'fieldNameChange',
-                                fieldName: 'movieTitle',
-                                payload: e.currentTarget.value,
+                                payload: {
+                                    fieldName: 'movieTitle',
+                                    value: e.currentTarget.value,
+                                }
                             })}
                         />
 
@@ -136,8 +148,10 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
                             value={movieDirector}
                             onChange={e => dispatch({
                                 type: 'fieldNameChange',
-                                fieldName: 'movieDirector',
-                                payload: e.currentTarget.value,
+                                payload: {
+                                    fieldName: 'movieDirector',
+                                    value: e.currentTarget.value,
+                                }
                             })}
                         />
 
@@ -147,8 +161,10 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
                             value={movieGenre}
                             onChange={e => dispatch({
                                 type: 'fieldNameChange',
-                                fieldName: 'movieGenre',
-                                payload: e.currentTarget.value,
+                                payload: {
+                                    fieldName: 'movieGenre',
+                                    value: e.currentTarget.value,
+                                }
                             })}
                         />
 
@@ -158,8 +174,10 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
                             value={movieStarring}
                             onChange={e => dispatch({
                                 type: 'fieldNameChange',
-                                fieldName: 'movieStarring',
-                                payload: e.currentTarget.value,
+                                payload: {
+                                    fieldName: 'movieStarring',
+                                    value: e.currentTarget.value,
+                                }
                             })}
                         />
                         <small className="mf__small">Please put a comma and space between starring names</small>
