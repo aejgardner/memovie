@@ -1,22 +1,21 @@
-export const submitMovie = (movie) => ({
+export const submitMovie = (data) => ({
     type: "submitMovie",
-    movie: movie
+    movie: data
 })
 
-export const removeMovie = (index) => ({
+export const deleteMovie = (index) => ({
     type: "deleteMovie",
-    index: index
+    payload: index
 })
 
-export const updateMovie = (movie, index) => ({
+export const updateMovie = (data) => ({
     type: "updateMovie",
-    updatedMovie: movie,
-    index: index
+    movies: data,
 })
 
-export const updateWatched = (index) => ({
+export const updateWatched = (data) => ({
     type: "updateWatched",
-    index: index
+    payload: data
 })
 
 export const resetMovies = () => ({
