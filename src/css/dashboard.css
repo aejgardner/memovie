@@ -1,4 +1,4 @@
-.lp__container {
+.dashboard__container {
     width: 100vw;
     height: 65vh;
     display: flex;
@@ -7,55 +7,56 @@
     flex-direction: column;
 }
 
-.lp__heading {
+.dashboard__heading {
     font-size: 10rem;
     font-weight: 100;
     margin: 0;
 }
 
-.lp__heading-blue {
+.dashboard__heading-blue {
     color: var(--font-blue);
 }
 
-.lp__sub-heading {
-    font-size: 2rem;
+.dashboard__welcome {
+    font-size: 1.5rem;
     margin-bottom: 0.8rem;
+    color: maroon;
 }
 
-.lp__btn-group {
+.dashboard__btn-group {
     width: 23rem;
     display: flex; 
     justify-content: space-between;
 }
 
 @media only screen and (max-width: 750px) {
-    .lp__heading {
+    .dashboard__heading {
         font-size: 7rem;
     }
 
-    .lp__sub-heading {
+    .dashboard__sub-heading {
         font-size: 1.5rem;
     }
 }
 
 @media only screen and (max-width: 500px) {
-    .lp__heading {
+    .dashboard__heading {
         font-size: 4.5rem;
     }
 
-    .lp__heading {
+    .dashboard__heading {
         margin-bottom: 0.4rem;
     }
 
-    .lp__sub-heading {
+    .dashboard__sub-heading {
         font-size: 1.2rem;
     }
 
-    .lp__btn-group {
+    .dashboard__btn-group {
         width: 80%;
     }
 
-    .lp__btn {
+    .dashboard__btn {
         padding: 0.4rem;
         font-size: 1.1rem;
     }
