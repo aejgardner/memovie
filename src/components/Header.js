@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import Button from './Button';
-import MovieIcon from '@material-ui/icons/Movie';
 import AboutDialogue from './Dialogues/AboutDialogue';
 import { makeStyles } from '@material-ui/core/styles';
+import MovieIcon from '@material-ui/icons/Movie';
+import { clearMovies } from '../data/actions/state';
 
 const Header = ({ children }) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const dispatchAction = useDispatch()
 
     // handles opening the add movie form dialogue
     const handleClickOpen = () => {
         setOpen(true);
+    };
+
+    // logs user out and resets global state
+    const handleLogout = () => {
+        dispatchAction(clearMovies())
+        localStorage.removeItem('user')
     };
 
     // handles closing the add movie form dialogue
@@ -31,13 +40,23 @@ const Header = ({ children }) => {
     return (
         <header className="header">
             <div className="header__icon-container">
-                <Link className="header__icon-home" to="/"><MovieIcon className={classes.fontSize44} /></Link>
+                <Link
+                    className="header__icon-home"
+                    to="/dashboard"
+                ><MovieIcon className={classes.fontSize44} />
+                </Link>
+                <Link
+                    onClick={handleLogout}
+                    className="btn header__logout"
+                    to="/home"
+                >Logout
+                </Link>
             </div>
             <h1 className="header__h1" >{children}</h1>
             <nav className="header__nav">
-                <Link className="btn" to="movie-picker">Movie Picker</Link>
+                <Link className="btn" to="moviepicker">Movie Picker</Link>
                 <i className="fas fa-circle"></i>
-                <Link className="btn" to="my-movies">My Movies</Link>
+                <Link className="btn" to="mymovies">My Movies</Link>
                 <i className="fas fa-circle"></i>
                 <AboutDialogue handleAboutClose={handleClose} aboutDialogueOpen={open} />
                 <Button
