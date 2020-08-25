@@ -1,28 +1,39 @@
-export const submitMovie = (data) => ({
-    type: "submitMovie",
-    movie: data
+export const saveMovies = res => ({
+    type: "SAVE_MOVIES",
+    payload: res
 })
 
-export const deleteMovie = (index) => ({
-    type: "deleteMovie",
-    payload: index
+export const addNewMovie = data => {
+    return ({
+        type: "ADD_MOVIE",
+        payload: data
+    })
+}
+
+export const removeMovie = id => ({
+    type: "REMOVE_MOVIE",
+    payload: id
 })
 
-export const updateMovie = (data) => ({
-    type: "updateMovie",
-    movies: data,
+export const updateSingleMovie = data => ({
+    type: "UPDATE_MOVIE",
+    payload: data,
 })
 
-export const updateWatched = (data) => ({
-    type: "updateWatched",
+export const clearMovies = () => ({
+    type: "RESET_MOVIES"
+})
+
+export const savePickedMovie = data => ({
+    type: "SAVE_PICKED_MOVIE",
     payload: data
 })
 
-export const resetMovies = () => ({
-    type: "resetMovies"
+export const storeUser = user => ({
+    type: "STORE_USER_DETAILS",
+    payload: user
 })
 
-export const savePickedMovie = (pickedMovie) => ({
-    type: "savePickedMovie",
-    pickedMovie: pickedMovie
-})
+export const resetAuthResponsePerComponent = () => ({
+    type: 'RESTART_AUTH_RESPONSE'
+});
