@@ -5,7 +5,7 @@ import Button from './Button';
 import AboutDialogue from './Dialogues/AboutDialogue';
 import { makeStyles } from '@material-ui/core/styles';
 import MovieIcon from '@material-ui/icons/Movie';
-import { clearMovies } from '../data/actions/state';
+import { clearMovies, logoutUser } from '../data/actions/state';
 
 const Header = ({ children }) => {
     const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ const Header = ({ children }) => {
 
     // logs user out and resets global state
     const handleLogout = () => {
-        dispatchAction(clearMovies())
+        dispatchAction(clearMovies(), logoutUser())
         localStorage.removeItem('user')
     };
 

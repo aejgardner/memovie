@@ -22,7 +22,6 @@ export default (state = initialState, action) => {
                 authResponse: 'Password is too short.'
             }
         case 'SIGNUP_SUCCESS':
-            console.log('vennery')
             return {
                 ...state,
                 authResponse: 'Register successful!',
@@ -43,6 +42,11 @@ export default (state = initialState, action) => {
                 ...state,
                 authResponse: 'Redirecting you to dashboard...',
                 user: { ...action.payload }
+            }
+        case 'LOGOUT_USER':
+            return {
+                ...state,
+                user: {}
             }
         case 'LOGIN_ERROR':
             return {

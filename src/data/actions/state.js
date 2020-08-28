@@ -31,9 +31,8 @@ export const savePickedMovie = data => ({
     payload: data
 })
 
-export const storeUser = user => ({
-    type: "STORE_USER_DETAILS",
-    payload: user
+export const logoutUser = () => ({
+    type: "LOGOUT_USER"
 })
 
 export const resetAuthResponsePerComponent = () => ({
