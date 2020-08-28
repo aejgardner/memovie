@@ -1,7 +1,10 @@
-export const saveMovies = res => ({
-    type: "SAVE_MOVIES",
-    payload: res
-})
+export const saveMovies = data => {
+    console.log(data)
+    return ({
+        type: "SAVE_MOVIES",
+        payload: data
+    })
+}
 
 export const addNewMovie = data => {
     return ({
