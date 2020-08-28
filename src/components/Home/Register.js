@@ -26,7 +26,7 @@ const registerReducer = (state, action) => {
     }
 }
 
-const Register = () => {
+const Register = ({ history }) => {
     const [state, dispatch] = useReducer(registerReducer, initialState);
 
     const dispatchAction = useDispatch();
@@ -39,7 +39,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatchAction(registerUser(state));
+        dispatchAction(registerUser(state, history));
     }
 
     const handleChange = (e) => {
