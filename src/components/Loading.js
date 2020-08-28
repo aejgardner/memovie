@@ -5,8 +5,8 @@ import { getMovies } from '../data/actions/api';
 const Loading = ({ children }) => {
     const dispatchAction = useDispatch();
 
-    const loaded = useSelector(state => state.loaded)
-    const user = useSelector(state => state.user)
+    const loaded = useSelector(state => state.movie.loaded)
+    const user = useSelector(state => state.auth.user)
 
     useEffect(() => {
         dispatchAction(getMovies(user));

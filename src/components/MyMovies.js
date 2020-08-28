@@ -40,8 +40,8 @@ const MyMovies = () => {
     // assigning useDispatch hook to variable
     const dispatchAction = useDispatch();
     // brings in the necessary global state properties
-    const movies = useSelector(state => state.movies)
-    const user = useSelector(state => state.user)
+    const movies = useSelector(state => state.movie.movies)
+    const user = useSelector(state => state.auth.user)
 
     // initial state of movie form dialogue
     const [movieFormOpen, setMovieFormOpen] = useState(false);

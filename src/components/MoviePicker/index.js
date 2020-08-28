@@ -4,7 +4,7 @@ import { savePickedMovie } from "../../data/actions/state";
 
 const mapStateToProps = state => {
     return {
-        movies: state.movies
+        movies: state.movie.movies
     };
 };
 

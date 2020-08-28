@@ -5,7 +5,7 @@ import { clearMovies } from '../data/actions/state';
 import { makeStyles } from '@material-ui/core/styles';
 
 const Dashboard = () => {
-    const user = useSelector(state => state.user);
+    const user = useSelector(state => state.auth.user);
     const dispatchAction = useDispatch();
 
     // logs user out and resets global state
