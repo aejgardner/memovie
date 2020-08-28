@@ -1,5 +1,4 @@
 export const saveMovies = data => {
-    console.log(data)
     return ({
         type: "SAVE_MOVIES",
         payload: data

@@ -5,10 +5,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
     let { type, payload } = action
-    console.log(payload)
     switch (type) {
         case "SAVE_MOVIES":
-            console.log("boooop")
             return {
                 ...state,
                 movies: [...state.movies, ...payload],
