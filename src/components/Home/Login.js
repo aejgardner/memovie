@@ -29,7 +29,7 @@ const Login = ({ history }) => {
 
     const dispatchAction = useDispatch();
 
-    const authResponse = useSelector(state => state.authResponse)
+    const authResponse = useSelector(state => state.auth.authResponse)
 
     useEffect(() => {
         dispatchAction(resetAuthResponsePerComponent());
