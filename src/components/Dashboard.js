@@ -1,12 +1,37 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { clearMovies } from '../data/actions/state';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useRef, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { clearMovies } from '../data/actions/state'
+import { makeStyles } from '@material-ui/core/styles'
+import { TweenMax, Power3 } from 'gsap'
 
 const Dashboard = () => {
     const user = useSelector(state => state.auth.user);
     const dispatchAction = useDispatch();
+    let me = useRef(null)
+    let movie = useRef(null)
+
+    useEffect(() => {
+        TweenMax.to(
+            me,
+            2,
+            {
+                opacity: 1,
+                y: 0,
+                ease: Power3.easeOut
+            }
+        )
+        TweenMax.to(
+            movie,
+            2,
+            {
+                opacity: 1,
+                y: 0,
+                ease: Power3.easeOut,
+                delay: .3
+            }
+        )
+    }, [])
 
     // logs user out and resets global state
     const handleLogout = () => {
@@ -22,7 +47,7 @@ const Dashboard = () => {
     });
 
     // storing custom classes in classes variable
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <div className="background-image">
@@ -32,12 +57,23 @@ const Dashboard = () => {
                 to="/home"
             >Logout
             </Link>
-            <div className="dashboard__container">
-                <h2 className="dashboard__heading" ><span className="dashboard__heading-blue">Me</span>Movie</h2>
-                <p className="dashboard__welcome">Welcome, {user.firstname}!</p>
-                <nav className="dashboard__btn-group">
-                    <Link className="btn dashboard__btn" to="/moviepicker">Pick me a movie!</Link>
-                    <Link className="btn dashboard__btn" to="/mymovies" >My Movies</Link>
+            <div className="dshbrd__container">
+                <div className="dshbrd__title-container">
+                    <h2
+                        ref={el => { me = el }}
+                        className="dshbrd__heading dshbrd__heading-blue"
+                    >Me
+                    </h2>
+                    <h2
+                        ref={el => { movie = el }}
+                        className="dshbrd__heading"
+                    >Movie
+                    </h2>
+                </div>
+                <p className="dshbrd__welcome">Welcome, {user.firstname}!</p>
+                <nav className="dshbrd__btn-group">
+                    <Link className="btn dshbrd__btn" to="/moviepicker">Pick me a movie!</Link>
+                    <Link className="btn dshbrd__btn" to="/mymovies" >My Movies</Link>
                 </nav>
             </div>
         </div>
