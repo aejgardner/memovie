@@ -31,6 +31,15 @@
     color: maroon;
 }
 
+.dshbrd__welcome span {
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.dshbrd__welcome span:last-child {
+    opacity: 0;
+}
+
 .dshbrd__btn-group {
     width: 23rem;
     display: flex; 

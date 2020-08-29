@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { clearMovies } from '../data/actions/state'
@@ -8,12 +8,21 @@ import { TweenMax, Power3 } from 'gsap'
 const Dashboard = () => {
     const user = useSelector(state => state.auth.user);
     const dispatchAction = useDispatch();
-    let me = useRef(null)
-    let movie = useRef(null)
+    let meSpan = useRef(null)
+    let movieSpan = useRef(null)
+    let w = useRef(null)
+    let e1 = useRef(null)
+    let l = useRef(null)
+    let c = useRef(null)
+    let o = useRef(null)
+    let m = useRef(null)
+    let e2 = useRef(null)
+    let comma = useRef(null)
+    let name = useRef(null)
 
     useEffect(() => {
         TweenMax.to(
-            me,
+            meSpan,
             2,
             {
                 opacity: 1,
@@ -22,7 +31,7 @@ const Dashboard = () => {
             }
         )
         TweenMax.to(
-            movie,
+            movieSpan,
             2,
             {
                 opacity: 1,
@@ -31,7 +40,97 @@ const Dashboard = () => {
                 delay: .3
             }
         )
-    }, [])
+        TweenMax.to(
+            w,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: .4
+            }
+        )
+        TweenMax.to(
+            e1,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: .6
+            }
+        )
+        TweenMax.to(
+            l,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: .8
+            }
+        )
+        TweenMax.to(
+            c,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: 1
+            }
+        )
+        TweenMax.to(
+            o,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: 1.2
+            }
+        )
+        TweenMax.to(
+            m,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: 1.4
+            }
+        )
+        TweenMax.to(
+            e2,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: 1.6
+            }
+        )
+        TweenMax.to(
+            comma,
+            2,
+            {
+                opacity: 1,
+                x: 0,
+                ease: Power3.easeOut,
+                delay: 1.8
+            }
+        )
+        TweenMax.to(
+            name,
+            5,
+            {
+                opacity: 1,
+                ease: Power3.easeOut,
+                delay: 2.6
+            }
+        )
+    }
+        , [])
 
     // logs user out and resets global state
     const handleLogout = () => {
@@ -60,17 +159,28 @@ const Dashboard = () => {
             <div className="dshbrd__container">
                 <div className="dshbrd__title-container">
                     <h2
-                        ref={el => { me = el }}
+                        ref={el => { meSpan = el }}
                         className="dshbrd__heading dshbrd__heading-blue"
                     >Me
                     </h2>
                     <h2
-                        ref={el => { movie = el }}
+                        ref={el => { movieSpan = el }}
                         className="dshbrd__heading"
                     >Movie
                     </h2>
                 </div>
-                <p className="dshbrd__welcome">Welcome, {user.firstname}!</p>
+                <p className="dshbrd__welcome">
+                    <span ref={el => { w = el }}>W</span>
+                    <span ref={el => { e1 = el }}>e</span>
+                    <span ref={el => { l = el }}>l</span>
+                    <span ref={el => { c = el }}>c</span>
+                    <span ref={el => { o = el }}>o</span>
+                    <span ref={el => { m = el }}>m</span>
+                    <span ref={el => { e2 = el }}>e</span>
+                    <span ref={el => { comma = el }}>,</span>
+                    &nbsp;
+                    <span ref={el => { name = el }}>{user.firstname}</span>
+                    !</p>
                 <nav className="dshbrd__btn-group">
                     <Link className="btn dshbrd__btn" to="/moviepicker">Pick me a movie!</Link>
                     <Link className="btn dshbrd__btn" to="/mymovies" >My Movies</Link>
