@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
-import { submitMovie } from '../../data/actions';
+import { submitNewMovie } from '../../data/actions/api';
 import Button from '../Button';
 import Paper from '@material-ui/core/Paper';
 import AlertDialogue from './AlertDialogue';
@@ -45,7 +45,7 @@ const movieFormReducer = (state, action) => {
                     movieTitle: "",
                     movieGenre: "",
                     movieDirector: "",
-                    movieStarring: "",
+                    movieCast: "",
                     movieWatched: false,
                 }
             }
@@ -59,7 +59,7 @@ const initialState = {
         movieTitle: "",
         movieGenre: "",
         movieDirector: "",
-        movieStarring: "",
+        movieCast: "",
         movieWatched: false,
     },
     warningDialogueOpen: false
@@ -72,7 +72,7 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
             movieTitle,
             movieGenre,
             movieDirector,
-            movieStarring
+            movieCast
         },
         warningDialogueOpen
     } = state;
@@ -94,7 +94,7 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
             dispatch({ type: "warningDialogueOpen" })
         } else {
             // dispatches user's form entries to reducer
-            dispatchAction(submitMovie(movie));
+            dispatchAction(submitNewMovie(movie));
 
             // resets form after submission
             dispatch({ type: "resetForm" })
@@ -169,18 +169,18 @@ const MovieFormDialogue = ({ handleMovieFormClose, movieFormDialogueOpen }) => {
                         />
 
                         <MovieFormInput
-                            label="Starring"
-                            id="starring"
-                            value={movieStarring}
+                            label="Cast"
+                            id="cast"
+                            value={movieCast}
                             onChange={e => dispatch({
                                 type: 'fieldNameChange',
                                 payload: {
-                                    fieldName: 'movieStarring',
+                                    fieldName: 'movieCast',
                                     value: e.currentTarget.value,
                                 }
                             })}
                         />
-                        <small className="mf__small">Please put a comma and space between starring names</small>
+                        <small className="mf__small">Please put a comma and space between cast names</small>
                         <small className="mf__small">*Required</small>
                         <div className="center">
                             <Button className="btn" onClick={handleSubmit}>Add movie</Button>

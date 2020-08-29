@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateMovie, deleteMovie, resetMovies } from '../data/actions';
+import { updateMovie, deleteMovie, resetMovies } from '../data/actions/api';
 import Header from './Header';
 import Button from './Button';
 import ResetMoviesDialogue from './Dialogues/ResetMoviesDialogue';
@@ -8,7 +8,7 @@ import MovieFormDialogue from './Dialogues/MovieFormDialogue';
 // material ui components
 import Container from '@material-ui/core/Container';
 import AddBox from '@material-ui/icons/AddBox';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
@@ -23,33 +23,25 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import MaterialTable from 'material-table'
+import { makeStyles } from '@material-ui/core/styles';
 
-// material ui table icons
-const tableIcons = {
-    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-    Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-    DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-    Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
-    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
-    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
-    ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
-};
+// mui's makestyles hook, allows for custom classnames in material ui components
+const useStyles = makeStyles({
+    arrow: {
+        transition: "all 0.2s linear",
+        marginLeft: "0.2rem"
+    },
+    font5: {
+        fontSize: "5rem"
+    }
+});
 
 const MyMovies = () => {
     // assigning useDispatch hook to variable
     const dispatchAction = useDispatch();
-    // brings in the movies array from global state
-    const movies = useSelector(state => state.movies)
+    // brings in the necessary global state properties
+    const movies = useSelector(state => state.movie.movies)
+    const user = useSelector(state => state.auth.user)
 
     // initial state of movie form dialogue
     const [movieFormOpen, setMovieFormOpen] = useState(false);
@@ -77,7 +69,7 @@ const MyMovies = () => {
 
     // clears all movies from user's movie table
     const handleReset = () => {
-        dispatchAction(resetMovies());
+        dispatchAction(resetMovies(user));
         setResetWarningOpen(false);
     }
 
@@ -87,16 +79,42 @@ const MyMovies = () => {
     }
 
     // deletes specific movie from global state
-    const handleDeleteMovie = (index) => {
-        dispatchAction(deleteMovie(index));
+    const handleDeleteMovie = (id) => {
+        dispatchAction(deleteMovie(id));
     }
+
+    // material ui table icons
+    const tableIcons = {
+        Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+        Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+        Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+        Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
+        DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+        Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+        Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+        Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
+        FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+        LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+        NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+        PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
+        ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+        Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+        SortArrow: forwardRef((props, ref) => <ImportExportIcon ref={ref}
+            className={classes.arrow}
+        />),
+        ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
+        ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+    };
+
+    // storing custom classes in classes variable
+    const classes = useStyles();
 
     // this is where the table columns and their headers are set 
     const [columns] = useState([
         { title: 'Movie Title', field: 'movieTitle' },
         { title: 'Director', field: 'movieDirector' },
         { title: 'Genre', field: 'movieGenre' },
-        { title: 'Starring', field: 'movieStarring' },
+        { title: 'Cast', field: 'movieCast' },
         {
             title: 'Watched',
             field: 'movieWatched',
@@ -109,7 +127,7 @@ const MyMovies = () => {
 
     return (
         <div className="background-image">
-            <Container width="70%">
+            <Container width="50%">
                 <Header>My Movies</Header>
                 {/* movie form that opens when user clicks 'add movie' button */}
                 <MovieFormDialogue
@@ -133,40 +151,44 @@ const MyMovies = () => {
                             open={resetWarningOpen}
                         />
                         {/* material ui table that displays user's movies */}
+                        {/* make it so sort button always shows so columns are properly aligned */}
                         <MaterialTable
                             title="Movie List"
                             icons={tableIcons}
                             columns={columns}
                             data={movies}
                             editable={{
-                                onRowUpdate: (newMovies, oldMovies) =>
+                                onRowUpdate: (newMovie, oldMovies) =>
                                     new Promise((resolve) => {
                                         const dataUpdate = [...movies];
-                                        const index = oldMovies.tableData.id;
-                                        dataUpdate[index] = newMovies;
-                                        handleUpdateMovie([...dataUpdate])
+                                        const index = oldMovies.id;
+                                        dataUpdate[index] = newMovie;
+                                        handleUpdateMovie(newMovie);
 
                                         resolve();
                                     }),
                                 onRowDelete: oldMovies =>
                                     new Promise((resolve) => {
-                                        const index = oldMovies.tableData.id;
-                                        handleDeleteMovie(index)
+                                        const id = oldMovies.id;
+                                        handleDeleteMovie(id)
                                         resolve()
                                     }),
                             }}
+
                             options={{
                                 actionsColumnIndex: -1,
                                 headerStyle: {
                                     fontSize: "1rem",
+                                    textAlign: "center",
+                                    whiteSpace: "nowrap",
                                 },
                                 rowStyle: {
                                     fontFamily: "Roboto, Helvetica, Arial",
                                     fontSize: "1rem",
-                                    backgroundColor: rowData =>
-                                        (
-                                            rowData.movieWatched ? 'green' : 'none'
-                                        )
+                                    textAlign: "center",
+                                },
+                                cellStyle: {
+                                    textAlign: "center",
                                 }
                             }}
                         />

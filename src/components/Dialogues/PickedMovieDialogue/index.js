@@ -3,7 +3,7 @@ import PickedMovieDialogue from "./PickedMovieDialogue"
 
 const mapStateToProps = state => {
     return {
-        pickedMovie: state.pickedMovie
+        pickedMovie: state.movie.pickedMovie
     };
 };
 

@@ -127,10 +127,10 @@ class MoviePicker extends Component {
         const { movies, classes } = this.props
 
         // the new sets in these variables remove duplicate filters, so each filter is only listed once
-        const directorsNoDuplicates = [...new Set(movies.map(movie => movie.movieDirector))];
-        const genresNoDuplicates = [...new Set(movies.map(movie => movie.movieGenre))];
-        // this flattens the array of starring arrays into one array
-        const starringNoDuplicates = [...new Set(movies.map(movie => movie.movieStarring.split(', ')).flat())];
+        const directorsNoDuplicates = [...new Set(movies.map(movie => movie.movieDirector).filter(director => director !== "-"))];
+        const genresNoDuplicates = [...new Set(movies.map(movie => movie.movieGenre).filter(genre => genre !== "-"))];
+        // this flattens the array of cast arrays into one array
+        const castNoDuplicates = [...new Set(movies.map(movie => movie.movieCast.split(', ')).flat().filter(cast => cast !== "-"))];
 
         return (
             <div className="background-image">
@@ -157,10 +157,10 @@ class MoviePicker extends Component {
                                     onChange={(e) => this.handleChange(e)}
                                 />
 
-                                {/* starring filters group */}
+                                {/* cast filters group */}
                                 <FilterGroup
-                                    heading="Starring"
-                                    filtersNoDuplicates={starringNoDuplicates}
+                                    heading="Cast"
+                                    filtersNoDuplicates={castNoDuplicates}
                                     onChange={(e) => this.handleChange(e)}
                                 />
 
