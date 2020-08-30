@@ -190,8 +190,8 @@ const Dashboard = () => {
                     <span ref={el => { name = el }}>{user.firstname}</span>
                     !</p>
             <nav className="dshbrd__btn-group">
-                <Link className="btn dshbrd__btn" to="/memovie/moviepicker">Pick me a movie!</Link>
-                <Link className="btn dshbrd__btn" to="/memovie/mymovies" >My Movies</Link>
+                <Link className="btn dshbrd__btn" to="/moviepicker">Pick me a movie!</Link>
+                <Link className="btn dshbrd__btn" to="/mymovies" >My Movies</Link>
             </nav>
         </div>
     );

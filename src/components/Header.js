@@ -42,7 +42,7 @@ const Header = ({ children }) => {
             <div className="header__icon-container">
                 <Link
                     className="header__icon-home"
-                    to="/memovie/dashboard"
+                    to="/dashboard"
                 ><MovieIcon className={classes.fontSize44} />
                 </Link>
                 <Link
@@ -54,9 +54,9 @@ const Header = ({ children }) => {
             </div>
             <h1 className="header__h1" >{children}</h1>
             <nav className="header__nav">
-                <Link className="btn" to="/memovie/moviepicker">Movie Picker</Link>
+                <Link className="btn" to="/moviepicker">Movie Picker</Link>
                 <i className="fas fa-circle"></i>
-                <Link className="btn" to="/memovie/mymovies">My Movies</Link>
+                <Link className="btn" to="/mymovies">My Movies</Link>
                 <i className="fas fa-circle"></i>
                 <AboutDialogue handleAboutClose={handleClose} aboutDialogueOpen={open} />
                 <Button

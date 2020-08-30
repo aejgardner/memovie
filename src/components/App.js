@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Dashboard from './Dashboard'
 import { PrivateRoute } from './PrivateRoute'
 import MyMovies from './MyMovies'
@@ -12,18 +12,18 @@ import history from "../history"
 
 function App() {
   return (
-    <BrowserRouter history={history} >
+    <Router history={history} >
       <div className="background-image">
         <Switch>
-          <Route exact path="/memovie" component={Login} />
-          <Route path="/memovie/register" component={Register} />
-          <PrivateRoute path="/memovie/mymovies" component={MyMovies} />
-          <PrivateRoute path="/memovie/moviepicker" component={MoviePicker} />
-          <PrivateRoute path="/memovie/dashboard" component={Dashboard} />
+          <Route exact path="/" component={Login} />
+          <Route path="/register" component={Register} />
+          <PrivateRoute path="/mymovies" component={MyMovies} />
+          <PrivateRoute path="/moviepicker" component={MoviePicker} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route component={FourOhFour} />
         </Switch>
       </div>
-    </BrowserRouter >
+    </Router >
   );
 }
 
