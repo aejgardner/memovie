@@ -6,8 +6,8 @@ import Register from './Register';
 const home = () => (
     <div className="authform__container background-image">
         <Switch>
-            <Route exact path="/home" component={Login} />
-            <Route path="/home/register" component={Register} />
+            <Route path="/memovie/home" component={Login} />
+            <Route path="/memovie/home/register" component={Register} />
         </Switch>
     </div>
 )

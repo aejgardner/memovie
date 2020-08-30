@@ -12,11 +12,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <PrivateRoute path="/mymovies" component={MyMovies} />
-          <PrivateRoute path="/moviepicker" component={MoviePicker} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <Route exact path="/memovie" component={Home} />
+          <Route path="/memovie/home" component={Home} />
+          <PrivateRoute path="/memovie/mymovies" component={MyMovies} />
+          <PrivateRoute path="/memovie/moviepicker" component={MoviePicker} />
+          <PrivateRoute path="/memovie/dashboard" component={Dashboard} />
           <FourOhFour />
         </Switch>
       </div>
