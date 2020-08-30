@@ -22,7 +22,7 @@ export const registerUser = (credentials, history) => dispatch => {
             localStorage.setItem("user", 'Bearer ' + token);
             dispatch({ type: 'SIGNUP_SUCCESS', payload: res.data })
             setTimeout(() => {
-                history.push("/memovie/dashboard");
+                history.push("/dashboard");
             }, 1000);
         } else {
             dispatch({ type: 'SIGNUP_ERROR', res })
@@ -55,7 +55,7 @@ export const loginUser = (credentials, history) => dispatch => {
             }
             dispatch({ type: 'LOGIN_SUCCESS', payload: userObj })
             setTimeout(() => {
-                history.push("/memovie/dashboard");
+                history.push("/dashboard");
             }, 1000);
         }
         else {
