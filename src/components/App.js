@@ -13,7 +13,6 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
           <PrivateRoute path="/mymovies" component={MyMovies} />
           <PrivateRoute path="/moviepicker" component={MoviePicker} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
