@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/memovie/static/css/main.c07a03ab.chunk.css",
-    "main.js": "/memovie/static/js/main.d0f90356.chunk.js",
-    "main.js.map": "/memovie/static/js/main.d0f90356.chunk.js.map",
+    "main.js": "/memovie/static/js/main.0cc775d4.chunk.js",
+    "main.js.map": "/memovie/static/js/main.0cc775d4.chunk.js.map",
     "runtime-main.js": "/memovie/static/js/runtime-main.388a58ae.js",
     "runtime-main.js.map": "/memovie/static/js/runtime-main.388a58ae.js.map",
     "static/js/2.ed869a66.chunk.js": "/memovie/static/js/2.ed869a66.chunk.js",
     "static/js/2.ed869a66.chunk.js.map": "/memovie/static/js/2.ed869a66.chunk.js.map",
     "index.html": "/memovie/index.html",
-    "precache-manifest.07db6d88601491eee4f91f74cbfc68b6.js": "/memovie/precache-manifest.07db6d88601491eee4f91f74cbfc68b6.js",
+    "precache-manifest.dde7961b47e7898be2f8f1065962f5cd.js": "/memovie/precache-manifest.dde7961b47e7898be2f8f1065962f5cd.js",
     "service-worker.js": "/memovie/service-worker.js",
     "static/css/main.c07a03ab.chunk.css.map": "/memovie/static/css/main.c07a03ab.chunk.css.map",
     "static/js/2.ed869a66.chunk.js.LICENSE.txt": "/memovie/static/js/2.ed869a66.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.388a58ae.js",
     "static/js/2.ed869a66.chunk.js",
     "static/css/main.c07a03ab.chunk.css",
-    "static/js/main.d0f90356.chunk.js"
+    "static/js/main.0cc775d4.chunk.js"
   ]
 }
