@@ -141,7 +141,9 @@ const Dashboard = () => {
     // mui's makestyles hook, allows for custom classnames in material ui components
     const useStyles = makeStyles({
         logoutBtn: {
-            marginLeft: "2rem"
+            position: "absolute",
+            top: "2rem",
+            left: "2rem"
         }
     });
 
@@ -150,13 +152,13 @@ const Dashboard = () => {
 
     return (
         <div className="background-image">
-            <Link
-                onClick={handleLogout}
-                className={"btn header__logout " + classes.logoutBtn}
-                to="/home"
-            >Logout
-            </Link>
             <div className="dshbrd__container">
+                <Link
+                    onClick={handleLogout}
+                    className={"btn header__logout " + classes.logoutBtn}
+                    to="/home"
+                >Logout
+            </Link>
                 <div className="dshbrd__title-container">
                     <h2
                         ref={el => { meSpan = el }}
