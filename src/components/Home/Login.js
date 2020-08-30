@@ -79,7 +79,7 @@ const Login = ({ history }) => {
                     null
                 }
                 <p className="authform__switch-form">New to MeMovie? Register <strong ><Link
-                    className="authform__switch-form-red" to="/home/register">here</Link></strong></p>
+                    className="authform__switch-form-red" to="/register">here</Link></strong></p>
             </footer>
         </div>
     );
