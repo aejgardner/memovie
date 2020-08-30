@@ -18,7 +18,7 @@ const FourOhFour = ({ history }) => {
     return (
         <div className="dshbrd__container">
             <h1 className={classes.h1}>Oops, page not found</h1>
-            <Button className="btn btn-secondary" onClick={history.goBack}>Home</Button>
+            <Button className="btn btn-secondary" onClick={history.goBack}>Back</Button>
         </div>
     );
 };
