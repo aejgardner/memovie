@@ -65,8 +65,11 @@ export const loginUser = (credentials, history) => dispatch => {
 }
 
 // get movies specific to logged in user
-export const getMovies = () => dispatch => {
+export const getMovies = () => (dispatch, getState) => {
     const token = localStorage.getItem('user')
+    if (getState().movie.movies.length) {
+        return
+    }
     axios.get(`user/movies`, {
         headers: {
             Authorization: token
