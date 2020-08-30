@@ -1,12 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
 import { Link } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Button from '../Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { registerUser } from '../../data/actions/api';
-import { resetAuthResponsePerComponent } from '../../data/actions/state';
-import { makeStyles } from '@material-ui/core/styles';
+import { resetAuthResponse } from '../../data/actions/state';
 
 const initialState = {
     email: "",
@@ -34,15 +30,15 @@ const Register = ({ history }) => {
     const authResponse = useSelector(state => state.auth.authResponse)
 
     useEffect(() => {
-        dispatchAction(resetAuthResponsePerComponent());
+        dispatchAction(resetAuthResponse());
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault();
         dispatchAction(registerUser(state, history));
     }
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         dispatch({
             type: "onChange",
             payload: {
@@ -52,79 +48,54 @@ const Register = ({ history }) => {
         })
     }
 
-    // mui's makestyles hook, allows for custom classnames in material ui components
-    const useStyles = makeStyles({
-        mb: {
-            marginBottom: "1.5rem"
-        },
-        paper: {
-            backgroundColor: "#fff",
-        }
-    });
-
-    // storing custom classes in classes variable
-    const classes = useStyles();
-
     return (
-        <Paper
-            className={classes.paper + " paper authform__paper center"}
-            elevation={3}
-        >
-            <h1 className={classes.mb}>Register Here</h1>
-            <form autoComplete="off" onSubmit={handleSubmit}>
-                <TextField
-                    id="firstname"
-                    label="First name"
-                    placeholder="Enter your first name"
-                    className={classes.mb}
-                    fullWidth
-                    variant="outlined"
-                    required
-                    onChange={handleChange}
-                />
-
-                <TextField
-                    id="lastname"
-                    label="Last name"
-                    placeholder="Enter your last name"
-                    className={classes.mb}
-                    fullWidth
-                    variant="outlined"
-                    required
-                    onChange={handleChange}
-                />
-
-                <TextField
-                    id="email"
-                    label="Email"
-                    placeholder="Enter your email"
-                    className={classes.mb}
-                    fullWidth
-                    variant="outlined"
-                    required
-                    type="email"
-                    onChange={handleChange}
-                />
-
-                <TextField
-                    id="password"
-                    label="Password"
-                    placeholder="Enter your password"
-                    className={classes.mb}
-                    fullWidth
-                    variant="outlined"
-                    type="password"
-                    required
-                    onChange={handleChange}
-                /><br />
-
-                <Button className="btn mb-1" type="submit">
-                    Register
-                    </Button>
-            </form>
-            <b className="mb-1">{authResponse !== null && authResponse}</b>
-            <p>Already a member? Login <strong><Link to="/home">here</Link></strong></p>
-        </Paper>
+        <div className="authform">
+            <div className="authform__background-blue"></div>
+            <div className="authform__contents">
+                <header className="authform__header-register" >
+                    <h1 className="authform__h1"> <span className="authform__h1-me">Me</span>Movie </h1>
+                    <h3 className="authform__sub-heading">Register</h3>
+                </header>
+                <form onSubmit={handleSubmit}>
+                    <div className="authform__inputs-container">
+                        <input
+                            onChange={handleChange}
+                            id="firstname"
+                            type="text"
+                            placeholder="first name"
+                        />
+                        <input
+                            onChange={handleChange}
+                            id="lastname"
+                            type="text"
+                            placeholder="last name"
+                        />
+                        <input
+                            onChange={handleChange}
+                            id="email"
+                            type="email"
+                            placeholder="email"
+                        />
+                        <input
+                            onChange={handleChange}
+                            id="password"
+                            type="password"
+                            placeholder="password (at least 6 characters)"
+                        />
+                    </div>
+                    <button type="submit" className="authform__btn">Register</button>
+                </form>
+            </div>
+            <footer className="authform__footer">
+                {authResponse !== null ?
+                    (<p className="authform__message">{authResponse}</p>)
+                    :
+                    null
+                }
+                <p className="authform__switch-form">Already have an account? Login <strong ><Link
+                    className="authform__switch-form-red" to="/home/login">here</Link></strong></p>
+            </footer>
+        </div>
     )
 }
 
