@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import Button from './Button'
 import { makeStyles } from '@material-ui/core/styles'
 
-const FourOhFour = () => {
+const FourOhFour = ({ history }) => {
     // mui's makestyles hook, allows for custom classnames in material ui components
     const useStyles = makeStyles({
         h1: {
@@ -18,7 +18,7 @@ const FourOhFour = () => {
     return (
         <div className="dshbrd__container">
             <h1 className={classes.h1}>Oops, page not found</h1>
-            <Link className="btn btn-secondary" to="/memovie">Home</Link>
+            <Button className="btn btn-secondary" onClick={history.goBack}>Home</Button>
         </div>
     );
 };

@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Home from './Home/Home'
 import Dashboard from './Dashboard'
 import { PrivateRoute } from './PrivateRoute'
 import MyMovies from './MyMovies'
@@ -8,10 +7,12 @@ import MoviePicker from './MoviePicker'
 import FourOhFour from './FourOhFour'
 import Login from './Home/Login'
 import Register from './Home/Register'
+// History file imported to use ReactRouter's history functionality
+import history from "../history"
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history} >
       <div className="background-image">
         <Switch>
           <Route exact path="/memovie" component={Login} />

@@ -1,4 +1,4 @@
-import axios from "../axios";
+import axios from "../axios"
 import hyphenOrContent from '../../functions/hyphenOrContent/hyphenOrContent'
 import {
     saveMovies,
@@ -22,7 +22,7 @@ export const registerUser = (credentials, history) => dispatch => {
             localStorage.setItem("user", 'Bearer ' + token);
             dispatch({ type: 'SIGNUP_SUCCESS', payload: res.data })
             setTimeout(() => {
-                history.push("/dashboard");
+                history.push("/memovie/dashboard");
             }, 1000);
         } else {
             dispatch({ type: 'SIGNUP_ERROR', res })
