@@ -162,7 +162,7 @@ const Dashboard = () => {
             <Link
                 onClick={handleLogout}
                 className={"btn header__logout " + classes.logoutBtn}
-                to="/memovie"
+                to="/"
             >Logout
             </Link>
             <div className="dshbrd__title-container">
