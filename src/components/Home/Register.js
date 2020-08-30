@@ -93,7 +93,7 @@ const Register = ({ history }) => {
                     null
                 }
                 <p className="authform__switch-form">Already have an account? Login <strong ><Link
-                    className="authform__switch-form-red" to="/home/login">here</Link></strong></p>
+                    className="authform__switch-form-red" to="/home">here</Link></strong></p>
             </footer>
         </div>
     )
