@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Dashboard from './Dashboard'
 import { PrivateRoute } from './PrivateRoute'
 import MyMovies from './MyMovies'
@@ -12,7 +12,7 @@ import history from "../history"
 
 function App() {
   return (
-    <BrowserRouter history={history} >
+    <Router history={history} >
       <div className="background-image">
         <Switch>
           <Route exact path="/memovie" component={Login} />
@@ -23,7 +23,7 @@ function App() {
           <Route component={FourOhFour} />
         </Switch>
       </div>
-    </BrowserRouter >
+    </Router >
   );
 }
 
