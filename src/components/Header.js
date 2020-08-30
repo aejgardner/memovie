@@ -48,7 +48,7 @@ const Header = ({ children }) => {
                 <Link
                     onClick={handleLogout}
                     className="btn header__logout"
-                    to="/home"
+                    to="/home/login"
                 >Logout
                 </Link>
             </div>
