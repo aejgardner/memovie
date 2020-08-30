@@ -7,10 +7,13 @@
 
 .header__icon-container {
     width: 33%;
+    display: flex;
+    align-items: center;
 }
 
 .header__icon-home {
     color: black;
+    margin-right: 1rem;
 }
 
 .header__h1 {
@@ -28,9 +31,13 @@
     justify-self: flex-end;
 }
 
-.header__nav > a, .header__nav > button {
+.header__nav > a, .header__nav > button, .header__logout {
     font-size: 1.3rem;
     padding: 0.5rem;
+}
+
+.header__logout {
+    margin: 0;
 }
 
 .fa-circle {
@@ -44,7 +51,7 @@
 }
 
 @media only screen and (max-width: 1150px) {
-    .header__nav > a, .header__nav > button {
+    .header__nav > a, .header__nav > button, .header__logout {
         font-size: 1.2rem;
     }
 }
@@ -54,7 +61,7 @@
         font-size: 2rem;
     }
 
-    .header__nav > a, .header__nav > button {
+    .header__nav > a, .header__nav > button, .header__logout {
         font-size: 1.1rem;
         padding-left: 0.2rem;
         padding-right: 0.2rem;
@@ -92,9 +99,9 @@
         justify-content: space-between;
     }
 
-    .header__nav > a, .header__nav > button {
+    .header__nav > a, .header__nav > button, .header__logout {
         margin: 0;
-        padding: 0.2rem 0.4rem;
+        padding: 0.5rem;
         font-size: 1.5rem;
     }
 
@@ -108,11 +115,15 @@
         font-size: 2rem;
     }
 
-    .header__nav > a, .header__nav > button {
+    .header__nav > a, .header__nav > button, .header__logout {
         font-size: 1.1rem;
     }
 
     .fa-circle {
         display: block;
+    }
+
+    .header__nav > a, .header__nav > button, .header__logout {
+        padding: 0.2rem 0.4rem;
     }
 }

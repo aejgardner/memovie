@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import MoviePicker from "./MoviePicker"
-import { savePickedMovie } from "../../data/actions";
+import MoviePicker from "./MoviePicker";
+import { savePickedMovie } from "../../data/actions/state";
 
 const mapStateToProps = state => {
     return {
-        movies: state.movies
+        movies: state.movie.movies
     };
 };
 

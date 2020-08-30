@@ -1,6 +1,9 @@
 const initial = {
     movies: [],
-    pickedMovie: {}
+    pickedMovie: {},
+    authResponse: null,
+    loaded: false,
+    user: {}
 }
 
 export default initial;

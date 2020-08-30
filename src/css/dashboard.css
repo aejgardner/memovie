@@ -1,4 +1,5 @@
-.lp__container {
+.dshbrd__container {
+    position: relative;
     width: 100vw;
     height: 65vh;
     display: flex;
@@ -7,55 +8,73 @@
     flex-direction: column;
 }
 
-.lp__heading {
+.dshbrd__title-container {
+    display: flex;
+}
+
+.dshbrd__heading {
+    transform: translateY(-50px);
+    opacity: 0;
     font-size: 10rem;
     font-weight: 100;
     margin: 0;
 }
 
-.lp__heading-blue {
+.dshbrd__heading-blue {
+    transform: translateY(-50px);
+    opacity: 0;
     color: var(--font-blue);
 }
 
-.lp__sub-heading {
-    font-size: 2rem;
+.dshbrd__welcome {
+    font-size: 1.5rem;
     margin-bottom: 0.8rem;
+    color: maroon;
 }
 
-.lp__btn-group {
+.dshbrd__welcome span {
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.dshbrd__welcome span:last-child {
+    opacity: 0;
+}
+
+.dshbrd__btn-group {
     width: 23rem;
     display: flex; 
     justify-content: space-between;
 }
 
 @media only screen and (max-width: 750px) {
-    .lp__heading {
+    .dshbrd__heading {
         font-size: 7rem;
     }
 
-    .lp__sub-heading {
+    .dshbrd__sub-heading {
         font-size: 1.5rem;
     }
 }
 
 @media only screen and (max-width: 500px) {
-    .lp__heading {
+    .dshbrd__heading {
         font-size: 4.5rem;
     }
 
-    .lp__heading {
+    .dshbrd__heading {
         margin-bottom: 0.4rem;
     }
 
-    .lp__sub-heading {
+    .dshbrd__sub-heading {
         font-size: 1.2rem;
     }
 
-    .lp__btn-group {
+    .dshbrd__btn-group {
         width: 80%;
     }
 
-    .lp__btn {
+    .dshbrd__btn {
         padding: 0.4rem;
         font-size: 1.1rem;
     }

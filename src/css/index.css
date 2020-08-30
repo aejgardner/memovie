@@ -1,7 +1,9 @@
 @import './multipage.css';
-@import './landingpage.css';
+@import './dashboard.css';
 @import './header.css';
 @import './movietable.css';
 @import './movieform.css';
 @import './dialogues.css';
 @import './moviepicker.css';
+@import './authforms.css';
+@import './loading.css';
