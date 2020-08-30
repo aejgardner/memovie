@@ -49,52 +49,54 @@ const Register = ({ history }) => {
     }
 
     return (
-        <div className="authform">
-            <div className="authform__background-blue"></div>
-            <div className="authform__contents">
-                <header className="authform__header-register" >
-                    <h1 className="authform__h1"> <span className="authform__h1-me">Me</span>Movie </h1>
-                    <h3 className="authform__sub-heading">Register</h3>
-                </header>
-                <form onSubmit={handleSubmit}>
-                    <div className="authform__inputs-container">
-                        <input
-                            onChange={handleChange}
-                            id="firstname"
-                            type="text"
-                            placeholder="first name"
-                        />
-                        <input
-                            onChange={handleChange}
-                            id="lastname"
-                            type="text"
-                            placeholder="last name"
-                        />
-                        <input
-                            onChange={handleChange}
-                            id="email"
-                            type="email"
-                            placeholder="email"
-                        />
-                        <input
-                            onChange={handleChange}
-                            id="password"
-                            type="password"
-                            placeholder="password (at least 6 characters)"
-                        />
-                    </div>
-                    <button type="submit" className="authform__btn">Register</button>
-                </form>
+        <div className="authform__container">
+            <div className="authform">
+                <div className="authform__background-blue"></div>
+                <div className="authform__contents">
+                    <header className="authform__header-register" >
+                        <h1 className="authform__h1"> <span className="authform__h1-me">Me</span>Movie </h1>
+                        <h3 className="authform__sub-heading">Register</h3>
+                    </header>
+                    <form onSubmit={handleSubmit}>
+                        <div className="authform__inputs-container">
+                            <input
+                                onChange={handleChange}
+                                id="firstname"
+                                type="text"
+                                placeholder="first name"
+                            />
+                            <input
+                                onChange={handleChange}
+                                id="lastname"
+                                type="text"
+                                placeholder="last name"
+                            />
+                            <input
+                                onChange={handleChange}
+                                id="email"
+                                type="email"
+                                placeholder="email"
+                            />
+                            <input
+                                onChange={handleChange}
+                                id="password"
+                                type="password"
+                                placeholder="password (at least 6 characters)"
+                            />
+                        </div>
+                        <button type="submit" className="authform__btn">Register</button>
+                    </form>
+                </div>
+                <footer className="authform__footer">
+                    {authResponse !== null ?
+                        (<p className="authform__message">{authResponse}</p>)
+                        :
+                        null
+                    }
+                    <p className="authform__switch-form">Already have an account? Login <strong ><Link
+                        className="authform__switch-form-red" to="/">here</Link></strong></p>
+                </footer>
             </div>
-            <footer className="authform__footer">
-                {authResponse !== null ?
-                    (<p className="authform__message">{authResponse}</p>)
-                    :
-                    null
-                }
-                <p className="authform__switch-form">Already have an account? Login <strong ><Link
-                    className="authform__switch-form-red" to="/">here</Link></strong></p>
-            </footer>
         </div>
     )
 }

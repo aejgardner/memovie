@@ -158,43 +158,41 @@ const Dashboard = () => {
     const classes = useStyles()
 
     return !loaded ? <Loading /> : (
-        <div className="background-image">
-            <div className="dshbrd__container">
-                <Link
-                    onClick={handleLogout}
-                    className={"btn header__logout " + classes.logoutBtn}
-                    to="/home/login"
-                >Logout
+        <div className="dshbrd__container">
+            <Link
+                onClick={handleLogout}
+                className={"btn header__logout " + classes.logoutBtn}
+                to="/"
+            >Logout
             </Link>
-                <div className="dshbrd__title-container">
-                    <h2
-                        ref={el => { meSpan = el }}
-                        className="dshbrd__heading dshbrd__heading-blue"
-                    >Me
+            <div className="dshbrd__title-container">
+                <h2
+                    ref={el => { meSpan = el }}
+                    className="dshbrd__heading dshbrd__heading-blue"
+                >Me
                     </h2>
-                    <h2
-                        ref={el => { movieSpan = el }}
-                        className="dshbrd__heading"
-                    >Movie
+                <h2
+                    ref={el => { movieSpan = el }}
+                    className="dshbrd__heading"
+                >Movie
                     </h2>
-                </div>
-                <p className="dshbrd__welcome">
-                    <span ref={el => { w = el }}>W</span>
-                    <span ref={el => { e1 = el }}>e</span>
-                    <span ref={el => { l = el }}>l</span>
-                    <span ref={el => { c = el }}>c</span>
-                    <span ref={el => { o = el }}>o</span>
-                    <span ref={el => { m = el }}>m</span>
-                    <span ref={el => { e2 = el }}>e</span>
-                    <span ref={el => { comma = el }}>,</span>
+            </div>
+            <p className="dshbrd__welcome">
+                <span ref={el => { w = el }}>W</span>
+                <span ref={el => { e1 = el }}>e</span>
+                <span ref={el => { l = el }}>l</span>
+                <span ref={el => { c = el }}>c</span>
+                <span ref={el => { o = el }}>o</span>
+                <span ref={el => { m = el }}>m</span>
+                <span ref={el => { e2 = el }}>e</span>
+                <span ref={el => { comma = el }}>,</span>
                     &nbsp;
                     <span ref={el => { name = el }}>{user.firstname}</span>
                     !</p>
-                <nav className="dshbrd__btn-group">
-                    <Link className="btn dshbrd__btn" to="/moviepicker">Pick me a movie!</Link>
-                    <Link className="btn dshbrd__btn" to="/mymovies" >My Movies</Link>
-                </nav>
-            </div>
+            <nav className="dshbrd__btn-group">
+                <Link className="btn dshbrd__btn" to="/moviepicker">Pick me a movie!</Link>
+                <Link className="btn dshbrd__btn" to="/mymovies" >My Movies</Link>
+            </nav>
         </div>
     );
 }

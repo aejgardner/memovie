@@ -133,72 +133,70 @@ class MoviePicker extends Component {
         const castNoDuplicates = [...new Set(movies.map(movie => movie.movieCast.split(', ')).flat().filter(cast => cast !== "-"))];
 
         return (
-            <div className="background-image">
-                <Container width="70%">
-                    <PickedMovieDialogue handleClose={this.handleMovieDialogueClose} open={movieDialogueOpen} />
-                    <NoMoviesDialogue handleClose={this.handleWarningDialogueClose} open={warningDialogueOpen} />
-                    <Header>Movie Picker</Header>
-                    <h3 className="center mp__h3">Pick a random movie from your movies, with or without filters</h3>
-                    <Paper className={classes.overflowX} elevation={4}>
-                        <div className="filters__container">
-                            <div className="filters">
+            <Container width="70%">
+                <PickedMovieDialogue handleClose={this.handleMovieDialogueClose} open={movieDialogueOpen} />
+                <NoMoviesDialogue handleClose={this.handleWarningDialogueClose} open={warningDialogueOpen} />
+                <Header>Movie Picker</Header>
+                <h3 className="center mp__h3">Pick a random movie from your movies, with or without filters</h3>
+                <Paper className={classes.overflowX} elevation={4}>
+                    <div className="filters__container">
+                        <div className="filters">
 
-                                {/* directors filter group */}
-                                <FilterGroup
-                                    heading="Directors"
-                                    filtersNoDuplicates={directorsNoDuplicates}
-                                    onChange={(e) => this.handleChange(e)}
-                                />
+                            {/* directors filter group */}
+                            <FilterGroup
+                                heading="Directors"
+                                filtersNoDuplicates={directorsNoDuplicates}
+                                onChange={(e) => this.handleChange(e)}
+                            />
 
-                                {/* genres filter group */}
-                                <FilterGroup
-                                    heading="Genres"
-                                    filtersNoDuplicates={genresNoDuplicates}
-                                    onChange={(e) => this.handleChange(e)}
-                                />
+                            {/* genres filter group */}
+                            <FilterGroup
+                                heading="Genres"
+                                filtersNoDuplicates={genresNoDuplicates}
+                                onChange={(e) => this.handleChange(e)}
+                            />
 
-                                {/* cast filters group */}
-                                <FilterGroup
-                                    heading="Cast"
-                                    filtersNoDuplicates={castNoDuplicates}
-                                    onChange={(e) => this.handleChange(e)}
-                                />
+                            {/* cast filters group */}
+                            <FilterGroup
+                                heading="Cast"
+                                filtersNoDuplicates={castNoDuplicates}
+                                onChange={(e) => this.handleChange(e)}
+                            />
 
-                                {/* watched before filters group */}
-                                <div className="filters__group filters__group-watched-before">
-                                    <h4 className="filters__heading">Watched before</h4>
-                                    <div
-                                        className={classes.spaceAround + " flex-align-center"}
-                                    >
-                                        <div className="flex-align-center filters__watched-checkbox">
-                                            <label className={classes.roboto} htmlFor="yes">Yes</label>
-                                            <input
-                                                id="yes"
-                                                type="checkbox"
-                                                onChange={() => this.handleWatched(true)}
-                                                className={classes.marginLeft}
-                                            />
-                                        </div>
-                                        <div className="flex-align-center filters__watched-checkbox">
-                                            <label className={classes.roboto} htmlFor="no">No</label>
-                                            <input
-                                                id="no"
-                                                type="checkbox"
-                                                onChange={() => this.handleWatched(false)}
-                                                className={classes.marginLeft}
-                                            />
-                                        </div>
+                            {/* watched before filters group */}
+                            <div className="filters__group filters__group-watched-before">
+                                <h4 className="filters__heading">Watched before</h4>
+                                <div
+                                    className={classes.spaceAround + " flex-align-center"}
+                                >
+                                    <div className="flex-align-center filters__watched-checkbox">
+                                        <label className={classes.roboto} htmlFor="yes">Yes</label>
+                                        <input
+                                            id="yes"
+                                            type="checkbox"
+                                            onChange={() => this.handleWatched(true)}
+                                            className={classes.marginLeft}
+                                        />
+                                    </div>
+                                    <div className="flex-align-center filters__watched-checkbox">
+                                        <label className={classes.roboto} htmlFor="no">No</label>
+                                        <input
+                                            id="no"
+                                            type="checkbox"
+                                            onChange={() => this.handleWatched(false)}
+                                            className={classes.marginLeft}
+                                        />
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="center mt-1" >
-                                <Button className="btn" onClick={this.handlePickMovie}>Pick movie</Button>
-                            </div>
                         </div>
-                    </Paper>
-                </Container>
-            </div>
+
+                        <div className="center mt-1" >
+                            <Button className="btn" onClick={this.handlePickMovie}>Pick movie</Button>
+                        </div>
+                    </div>
+                </Paper>
+            </Container>
         );
     }
 }

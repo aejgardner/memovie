@@ -126,81 +126,79 @@ const MyMovies = () => {
     ]);
 
     return (
-        <div className="background-image">
-            <Container width="50%">
-                <Header>My Movies</Header>
-                {/* movie form that opens when user clicks 'add movie' button */}
-                <MovieFormDialogue
-                    handleMovieFormClose={handleMovieFormClose}
-                    movieFormDialogueOpen={movieFormOpen}
-                />
-                <div className="center">
-                    <Button
-                        className="btn btn-secondary mt-1 mb-1"
-                        onClick={handleMovieFormOpen}
-                    >Add a movie
+        <Container width="50%">
+            <Header>My Movies</Header>
+            {/* movie form that opens when user clicks 'add movie' button */}
+            <MovieFormDialogue
+                handleMovieFormClose={handleMovieFormClose}
+                movieFormDialogueOpen={movieFormOpen}
+            />
+            <div className="center">
+                <Button
+                    className="btn btn-secondary mt-1 mb-1"
+                    onClick={handleMovieFormOpen}
+                >Add a movie
                     </Button>
-                </div>
-                {/* displays movie table only if there are any movies in global state */}
-                {movies.length ?
-                    <>
-                        {/* dialogue that opens when user clicks 'reset movies' button */}
-                        <ResetMoviesDialogue
-                            handleClose={handleResetWarningClose}
-                            handleReset={handleReset}
-                            open={resetWarningOpen}
-                        />
-                        {/* material ui table that displays user's movies */}
-                        {/* make it so sort button always shows so columns are properly aligned */}
-                        <MaterialTable
-                            title="Movie List"
-                            icons={tableIcons}
-                            columns={columns}
-                            data={movies}
-                            editable={{
-                                onRowUpdate: (newMovie, oldMovies) =>
-                                    new Promise((resolve) => {
-                                        const dataUpdate = [...movies];
-                                        const index = oldMovies.id;
-                                        dataUpdate[index] = newMovie;
-                                        handleUpdateMovie(newMovie);
+            </div>
+            {/* displays movie table only if there are any movies in global state */}
+            {movies.length ?
+                <>
+                    {/* dialogue that opens when user clicks 'reset movies' button */}
+                    <ResetMoviesDialogue
+                        handleClose={handleResetWarningClose}
+                        handleReset={handleReset}
+                        open={resetWarningOpen}
+                    />
+                    {/* material ui table that displays user's movies */}
+                    {/* make it so sort button always shows so columns are properly aligned */}
+                    <MaterialTable
+                        title="Movie List"
+                        icons={tableIcons}
+                        columns={columns}
+                        data={movies}
+                        editable={{
+                            onRowUpdate: (newMovie, oldMovies) =>
+                                new Promise((resolve) => {
+                                    const dataUpdate = [...movies];
+                                    const index = oldMovies.id;
+                                    dataUpdate[index] = newMovie;
+                                    handleUpdateMovie(newMovie);
 
-                                        resolve();
-                                    }),
-                                onRowDelete: oldMovies =>
-                                    new Promise((resolve) => {
-                                        const id = oldMovies.id;
-                                        handleDeleteMovie(id)
-                                        resolve()
-                                    }),
-                            }}
+                                    resolve();
+                                }),
+                            onRowDelete: oldMovies =>
+                                new Promise((resolve) => {
+                                    const id = oldMovies.id;
+                                    handleDeleteMovie(id)
+                                    resolve()
+                                }),
+                        }}
 
-                            options={{
-                                actionsColumnIndex: -1,
-                                headerStyle: {
-                                    fontSize: "1rem",
-                                    textAlign: "center",
-                                    whiteSpace: "nowrap",
-                                },
-                                rowStyle: {
-                                    fontFamily: "Roboto, Helvetica, Arial",
-                                    fontSize: "1rem",
-                                    textAlign: "center",
-                                },
-                                cellStyle: {
-                                    textAlign: "center",
-                                }
-                            }}
-                        />
-                        <div className="center mt-1">
-                            <Button className="btn btn-secondary mb-1" onClick={handleResetWarningOpen}>Reset</Button>
-                        </div>
-                    </>
-                    :
-                    <h2 className="center movie-table__h2">No movies! Add some by clicking the button above</h2>
-                }
-            </Container>
-        </div>
+                        options={{
+                            actionsColumnIndex: -1,
+                            headerStyle: {
+                                fontSize: "1rem",
+                                textAlign: "center",
+                                whiteSpace: "nowrap",
+                            },
+                            rowStyle: {
+                                fontFamily: "Roboto, Helvetica, Arial",
+                                fontSize: "1rem",
+                                textAlign: "center",
+                            },
+                            cellStyle: {
+                                textAlign: "center",
+                            }
+                        }}
+                    />
+                    <div className="center mt-1">
+                        <Button className="btn btn-secondary mb-1" onClick={handleResetWarningOpen}>Reset</Button>
+                    </div>
+                </>
+                :
+                <h2 className="center movie-table__h2">No movies! Add some by clicking the button above</h2>
+            }
+        </Container>
     )
 }
 

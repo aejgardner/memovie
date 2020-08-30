@@ -4,7 +4,7 @@ import Login from './Login';
 import Register from './Register';
 
 const home = () => (
-    <div className="authform__container background-image">
+    <div className="authform__container">
         <Switch>
             <Route exact path="/" component={Login} />
             <Route path="/register" component={Register} />

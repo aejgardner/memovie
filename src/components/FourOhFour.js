@@ -16,13 +16,13 @@ const FourOhFour = () => {
     const classes = useStyles()
 
     return (
-        <div className="background-image">
-            <div className="dshbrd__container">
-                <h1 className={classes.h1}>Oops, page not found</h1>
-                <Link className="btn btn-secondary" to="/dashboard">Home</Link>
-            </div>
+        <div className="dshbrd__container">
+            <h1 className={classes.h1}>Oops, page not found</h1>
+            <Link className="btn btn-secondary" to="/">Home</Link>
         </div>
     );
 };
 
 export default FourOhFour;
+
+//   "homepage": "https://aejgardner.github.io/memovie/",
