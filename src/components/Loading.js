@@ -1,20 +1,11 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies } from '../data/actions/api';
+import React from 'react'
 
-const Loading = ({ children }) => {
-    const dispatchAction = useDispatch();
-
-    const loaded = useSelector(state => state.movie.loaded)
-    const user = useSelector(state => state.auth.user)
-
-    useEffect(() => {
-        dispatchAction(getMovies(user));
-    }, []);
-
-    return loaded ? children : (
-        <div className="loader">Loading...</div>
-    );
-};
+const Loading = () => (
+    <div className="background-image">
+        <div className="dshbrd__container">
+            <div class="loading-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+);
 
 export default Loading;
