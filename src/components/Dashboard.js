@@ -1,13 +1,18 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { clearMovies } from '../data/actions/state'
 import { makeStyles } from '@material-ui/core/styles'
 import { TweenMax, Power3 } from 'gsap'
+import { getMovies } from '../data/actions/api'
+import Loading from './Loading'
 
 const Dashboard = () => {
-    const user = useSelector(state => state.auth.user);
-    const dispatchAction = useDispatch();
+    const user = useSelector(state => state.auth.user)
+    const loaded = useSelector(state => state.movie.loaded)
+    const dispatchAction = useDispatch()
+
+    // variables storing elements that will be animated
     let meSpan = useRef(null)
     let movieSpan = useRef(null)
     let w = useRef(null)
@@ -20,7 +25,9 @@ const Dashboard = () => {
     let comma = useRef(null)
     let name = useRef(null)
 
+    // get movies and animate text when component renders
     useEffect(() => {
+        dispatchAction(getMovies(user))
         TweenMax.to(
             meSpan,
             2,
@@ -150,13 +157,13 @@ const Dashboard = () => {
     // storing custom classes in classes variable
     const classes = useStyles()
 
-    return (
+    return !loaded ? <Loading /> : (
         <div className="background-image">
             <div className="dshbrd__container">
                 <Link
                     onClick={handleLogout}
                     className={"btn header__logout " + classes.logoutBtn}
-                    to="/home"
+                    to="/home/login"
                 >Logout
             </Link>
                 <div className="dshbrd__title-container">
