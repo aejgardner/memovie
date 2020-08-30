@@ -12,16 +12,12 @@ import Register from './Home/Register'
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route exact path="/memovie" component={Login} />
-          <Route path="/memovie/register" component={Register} />
-          <PrivateRoute path="/memovie/mymovies" component={MyMovies} />
-          <PrivateRoute path="/memovie/moviepicker" component={MoviePicker} />
-          <PrivateRoute path="/memovie/dashboard" component={Dashboard} />
-          <FourOhFour />
-        </Switch>
-      </div>
+      <Route exact path="/" component={Login} />
+      <Route path="/register" component={Register} />
+      <PrivateRoute path="/mymovies" component={MyMovies} />
+      <PrivateRoute path="/moviepicker" component={MoviePicker} />
+      <PrivateRoute path="/dashboard" component={Dashboard} />
+      <FourOhFour />
     </BrowserRouter>
   );
 }
