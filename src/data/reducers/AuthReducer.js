@@ -25,6 +25,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 authResponse: 'Register successful!',
+                user: { ...action.payload }
             }
 
         case 'SIGNUP_ERROR':

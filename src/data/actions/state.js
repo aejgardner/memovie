@@ -35,6 +35,6 @@ export const logoutUser = () => ({
     type: "LOGOUT_USER"
 })
 
-export const resetAuthResponsePerComponent = () => ({
+export const resetAuthResponse = () => ({
     type: 'RESTART_AUTH_RESPONSE'
 });

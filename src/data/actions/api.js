@@ -20,7 +20,7 @@ export const registerUser = (credentials, history) => dispatch => {
         const { token } = res.data;
         if (token !== null) {
             localStorage.setItem("user", 'Bearer ' + token);
-            dispatch({ type: 'SIGNUP_SUCCESS' })
+            dispatch({ type: 'SIGNUP_SUCCESS', payload: res.data })
             setTimeout(() => {
                 history.push("/dashboard");
             }, 1000);
