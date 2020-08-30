@@ -18,11 +18,9 @@ const FourOhFour = () => {
     return (
         <div className="dshbrd__container">
             <h1 className={classes.h1}>Oops, page not found</h1>
-            <Link className="btn btn-secondary" to="/">Home</Link>
+            <Link className="btn btn-secondary" to="/memovie">Home</Link>
         </div>
     );
 };
 
 export default FourOhFour;
-
-//   "homepage": "https://aejgardner.github.io/memovie/",

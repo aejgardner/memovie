@@ -55,7 +55,7 @@ export const loginUser = (credentials, history) => dispatch => {
             }
             dispatch({ type: 'LOGIN_SUCCESS', payload: userObj })
             setTimeout(() => {
-                history.push("/dashboard");
+                history.push("/memovie/dashboard");
             }, 1000);
         }
         else {

@@ -14,11 +14,11 @@ function App() {
     <BrowserRouter>
       <div className="background-image">
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/register" component={Register} />
-          <PrivateRoute path="/mymovies" component={MyMovies} />
-          <PrivateRoute path="/moviepicker" component={MoviePicker} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <Route exact path="/memovie" component={Login} />
+          <Route path="/memovie/register" component={Register} />
+          <PrivateRoute path="/memovie/mymovies" component={MyMovies} />
+          <PrivateRoute path="/memovie/moviepicker" component={MoviePicker} />
+          <PrivateRoute path="/memovie/dashboard" component={Dashboard} />
           <Route component={FourOhFour} />
         </Switch>
       </div>
