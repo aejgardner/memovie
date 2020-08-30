@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import { Link } from "react-router-dom"
+import { makeStyles } from '@material-ui/core/styles'
 
 const FourOhFour = () => {
     // mui's makestyles hook, allows for custom classnames in material ui components
@@ -10,16 +10,16 @@ const FourOhFour = () => {
             fontSize: "5rem",
             marginBottom: "2rem"
         }
-    });
+    })
 
     // storing custom classes in classes variable
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <div className="background-image">
-            <div className="lp__container">
+            <div className="dshbrd__container">
                 <h1 className={classes.h1}>Oops, page not found</h1>
-                <Link className="btn btn-secondary" to="/">Home</Link>
+                <Link className="btn btn-secondary" to="/dashboard">Home</Link>
             </div>
         </div>
     );
