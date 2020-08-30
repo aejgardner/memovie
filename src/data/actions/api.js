@@ -69,15 +69,16 @@ export const getMovies = () => (dispatch, getState) => {
     const token = localStorage.getItem('user')
     if (getState().movie.movies.length) {
         return
+    } else if (getState().movie.movies.length === 0) {
+        axios.get(`user/movies`, {
+            headers: {
+                Authorization: token
+            }
+        }).then(res => {
+            let movies = res.data.data.map(movie => hyphenOrContent(movie))
+            dispatch(saveMovies(movies));
+        });
     }
-    axios.get(`user/movies`, {
-        headers: {
-            Authorization: token
-        }
-    }).then(res => {
-        let movies = res.data.data.map(movie => hyphenOrContent(movie))
-        dispatch(saveMovies(movies));
-    });
 }
 
 // add movie specific to a user
