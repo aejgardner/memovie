@@ -6,13 +6,16 @@ import { PrivateRoute } from './PrivateRoute'
 import MyMovies from './MyMovies'
 import MoviePicker from './MoviePicker'
 import FourOhFour from './FourOhFour'
+import Login from './Home/Login'
+import Register from './Home/Register'
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Login} />
+          <Route path="/register" component={Register} />
           <PrivateRoute path="/mymovies" component={MyMovies} />
           <PrivateRoute path="/moviepicker" component={MoviePicker} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
